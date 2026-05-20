@@ -3,6 +3,7 @@ import { tarotPages } from './registry-tarot'
 import { signPages } from './registry-signs'
 import { allAsteroidPages } from './registry-asteroids'
 import { allWisdomPages } from './registry-wisdom'
+import { allTraditionPages } from './registry-traditions'
 
 let _cache: Page[] | null = null
 
@@ -13,6 +14,7 @@ export function getAllPages(): Page[] {
   pages.push(...signPages())
   pages.push(...allAsteroidPages())
   pages.push(...allWisdomPages())
+  pages.push(...allTraditionPages())
 
   // Wisdom hub
   pages.push({
@@ -30,6 +32,8 @@ export function getAllPages(): Page[] {
       { heading: 'Other traditions', body: 'I Ching, runes, chakras, mantras, solfeggio frequencies, sacred geometry, dream symbols, manifestation methods.', list: ['I Ching', 'Runes', 'Chakras', 'Mantras', 'Solfeggio', 'Sacred geometry', 'Dream symbols', 'Manifestation', 'Spirit animals', 'Spiritual symbols'] },
       { heading: 'Inner senses & energy', body: 'Clair senses, empath types, auras, twin flame stages.', list: ['Clair senses', 'Empath types', 'Auras', 'Twin flame stages'] },
       { heading: 'Numbers & cycles', body: 'Life paths, personal years, angel numbers, archangels, goddesses, Chinese zodiac, crystals.', list: ['Numerology — Life paths', 'Personal years', 'Angel numbers', 'Archangels', 'Goddesses', 'Chinese zodiac', 'Crystals (by sign)', 'Crystals (by intent)'] },
+      { heading: 'Yoga, Ayurveda, Kabbalah, Vedic', body: 'The Eastern + Western contemplative traditions: eight limbs, mudras, pranayama, asanas, doshas, nakshatras, sefirot, kleshas, yamas & niyamas, Bach flowers.', list: ['Eight Limbs of Yoga', 'Mudras', 'Pranayama', 'Asanas', 'Doshas (Ayurveda)', 'Nakshatras (Vedic)', 'Sefirot (Kabbalah)', 'Kleshas', 'Yamas & Niyamas', 'Bach Flower Remedies'] },
+      { heading: 'World pantheons', body: 'Eight world traditions of the divine: Hindu, Greek, Egyptian, Celtic, Yoruba (Orisha), Mesopotamian, Aztec, Shinto, Norse. Plus the Wheel of the Year (Sabbats).', list: ['Hindu Devas', 'Olympian Gods', 'Egyptian Gods', 'Celtic Gods', 'Orishas', 'Mesopotamian Gods', 'Aztec Gods', 'Shinto Kami', 'Norse Gods', 'Wheel of the Year (Sabbats)'] },
     ],
   })
 
