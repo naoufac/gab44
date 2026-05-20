@@ -1,222 +1,482 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { SITE_DESCRIPTION } from '@/lib/identity'
-
-const sections = [
-  { label: 'The 12 signs', href: '/horoscopes', text: 'Deep profiles for every zodiac sign — gifts, shadows, love, career, the lesson the chart is teaching you.', symbol: '♈' },
-  { label: 'The 78 tarot cards', href: '/tarot', text: '22 Major Arcana, 16 court cards, 40 minors, and a library of spreads. The whole deck, written warm.', symbol: '🃏' },
-  { label: 'Rising signs', href: '/rising/aries', text: 'The face you wear into the world. Twelve ascendant pages: first impression, body style, social mask, life chapters.', symbol: '🌅' },
-  { label: 'Moon signs', href: '/moon/cancer', text: 'The inner weather. Twelve moon-sign pages: emotional core, attachment, what soothes, what stresses.', symbol: '🌙' },
-  { label: 'Runes', href: '/runes', text: '24 elder futhark runes. Upright, reversed, in love, in work — the Norse oracle.', symbol: 'ᚠ' },
-  { label: 'I Ching', href: '/iching', text: '64 hexagrams. The Chinese book of changes — when pulled, changing lines, in love, in work.', symbol: '䷀' },
-  { label: 'Chakras', href: '/chakras/root-chakra', text: 'Seven chakras — what each governs, when open, when blocked, how to balance.', symbol: '🪷' },
-  { label: 'Compatibility', href: '/compatibility/aries-libra', text: '78 sign-pair pages. How any two zodiac signs meet — in love, in work, in the long arc.', symbol: '💞' },
-  { label: 'Decans', href: '/decans', text: 'Each sign breaks into three 10° decans. Finer-grained reading — 36 sub-types of you.', symbol: '🜂' },
-  { label: 'Lunar phases', href: '/lunar-phases', text: 'New moon, full moon, every phase in between — what to do, what to release, the ritual.', symbol: '🌒' },
-  { label: 'Asteroids', href: '/chiron/aries', text: 'Chiron, Lilith, Vesta, Juno, Pallas, Ceres and the centaur family — what the daily column forgets.', symbol: '⚹' },
-  { label: 'Wisdom traditions', href: '/wisdom', text: 'Mantras, solfeggio frequencies, sacred geometry, angel numbers, dream symbols, manifestation methods.', symbol: '✺' },
-]
 ---
 <BaseLayout
-  title="gab44 — astrology, warmly written"
+  title="gab44 — astrology with soul"
   description={SITE_DESCRIPTION}
   canonical="/"
   ogType="website"
   navCurrent="/"
   pageClass="page-home"
 >
-  <section class="hero">
-    <div class="hero-wrap">
-      <div class="brand-row">
-        <span class="brand-mark">✺</span>
-        <span class="brand-name">gab44</span>
-      </div>
-      <h1>Astrology, warmly written.</h1>
-      <p class="lede">
-        A reference library, not a feed. The 12 signs. The 78 tarot cards.
-        The 24 runes. The 64 hexagrams. The chakras, the moon phases, the
-        decans, the asteroids the daily horoscope columns forget.
-        Hand-written, end to end. Over a thousand evergreen pages on the
-        language of the sky.
-      </p>
-      <div class="hero-cta">
-        <a href="/horoscopes" class="btn-primary">Read the 12 signs</a>
-        <a href="/tarot" class="btn-secondary">Browse the tarot</a>
-      </div>
-    </div>
-  </section>
+<div class="home-root">
 
-  <section class="cards-section">
-    <div class="cards-wrap">
-      <h2 class="section-heading">Doorways</h2>
-      <div class="cards-grid">
-        {sections.map(s => (
-          <a class="card" href={s.href}>
-            <div class="card-symbol">{s.symbol}</div>
-            <div class="card-label">{s.label}</div>
-            <p class="card-text">{s.text}</p>
-            <span class="card-cta">Read →</span>
-          </a>
-        ))}
+    
+
+    <div class="brand-mark"><span class="dot"></span> gab44 ✦ astrology with soul</div>
+    <h1>readings, written for <span class="accent">one human</span> at a time.</h1>
+    <p class="sub">
+      Daily energy. Life-path mappings. Honest astrology
+      behind every answer — built by someone who actually does this for his own family.
+    </p>
+
+    <div class="grid">
+      <div class="card featured">
+        <h2>✨ Daily horoscopes — all 12 signs</h2>
+        <p>Today's energy for your sign — warm, modern, written daily. No "the planets align" filler. One concrete energy, one practical move, one tiny encouragement.</p>
+        <a class="cta" href="/horoscopes">Read today's horoscope →</a>
+        <div class="agent-row">
+          <span class="pill pill-a"><span class="d"></span>updated daily</span>
+          <span class="pill pill-b"><span class="d"></span>3-5 sentences</span>
+          <span class="pill pill-c"><span class="d"></span>no woo-woo</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>💞 Zodiac compatibility — all 78 pairs</h2>
+        <p>Every sign × every sign. The spark, the friction, the underrated gift, one move this week. Pick any two — yours and theirs.</p>
+        <a class="cta outline" href="/compatibility">Browse pairs →</a>
+      </div>
+
+      <div class="card">
+        <h2>📜 Sign personalities — 12 deep profiles</h2>
+        <p>Evergreen, careful guides to each zodiac sign — core energy, gifts, shadows, love, career, spiritual gift, the lesson of this lifetime.</p>
+        <a class="cta outline" href="/horoscopes">Read the profiles →</a>
+      </div>
+
+      <div class="card">
+        <h2>🜂 Sign groups — elements &amp; modalities</h2>
+        <p>The 4 elements (fire, earth, air, water) and 3 modalities (cardinal, fixed, mutable). Why your sign is the way it is — through the bigger pattern it belongs to.</p>
+        <a class="cta outline" href="/elements">Browse the 7 patterns →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌙 Moon signs — your inner weather</h2>
+        <p>Your sun sign is who you act like. Your moon sign is how you actually feel — emotional core, attachment style, what soothes, what stresses. Twelve deep evergreen guides.</p>
+        <a class="cta outline" href="/moon">Read your moon sign →</a>
+      </div>
+
+      <div class="card">
+        <h2>✨ Rising signs — the mask the world meets first</h2>
+        <p>Your ascendant is the costume your soul wears in this lifetime — first impression, body style, social mask, defense mechanism, life chapters. The third leg of the big three.</p>
+        <a class="cta outline" href="/rising">Read your rising sign →</a>
+      </div>
+
+      <div class="card">
+        <h2>🃏 Tarot — all 22 Major Arcana</h2>
+        <p>From the Fool's leap to the World's completion. Twenty-two evergreen guides — upright meaning, reversed, in love, in career, the spiritual gift, the moment when you pull the card.</p>
+        <a class="cta outline" href="/tarot">Read the cards →</a>
+      </div>
+
+      <div class="card">
+        <h2>🏛️ The 12 houses of astrology</h2>
+        <p>Where the signs are <em>how</em> and the planets are <em>what</em>, the houses are <em>where</em>. Identity, money, home, partnership, transformation, career — twelve evergreen guides to the territory of your chart.</p>
+        <a class="cta outline" href="/houses">Browse the houses →</a>
+      </div>
+
+      <div class="card">
+        <h2>🔢 Numerology — your life path number</h2>
+        <p>Astrology reads the sky at your birth. Numerology reads the math. Nine single-digit paths plus three master numbers (11, 22, 33) — twelve evergreen guides to the number running underneath you.</p>
+        <a class="cta outline" href="/numerology">Find your life path →</a>
+      </div>
+
+      <div class="card">
+        <h2>💎 Crystals & birthstones — three stones per sign</h2>
+        <p>Not a curio cabinet — a working kit. An anchor stone, a companion, and one for the harder days. All twelve signs with traditional birthstones, how to use, what to avoid.</p>
+        <a class="cta outline" href="/crystals">Find your stones →</a>
+      </div>
+
+      <div class="card">
+        <h2>✨ Angel numbers — 111, 222, 333, 11:11, more</h2>
+        <p>When the same digits keep finding you, they're saying something. Thirteen evergreen guides — the spiritual message, in love, in career, twin flame, what to do when you see it.</p>
+        <a class="cta outline" href="/angel-numbers">Read the numbers →</a>
+      </div>
+
+      <div class="card">
+        <h2>🪐 The 10 planets — how to read your birth chart</h2>
+        <p>Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto. The actors moving through your chart. A friendly map for reading the planets, return cycles included.</p>
+        <a class="cta outline" href="/planets">Read the planets →</a>
+      </div>
+
+      <div class="card">
+        <h2>🟥🟧🟨💚🟦🟪 The 7 chakras — your energy map</h2>
+        <p>Root, sacral, solar plexus, heart, throat, third eye, crown. What each centre governs, signs of an open vs blocked chakra, what blocks it, how to open it, four affirmations each. Pairs with crystals and healing sounds.</p>
+        <a class="cta outline" href="/chakras">Walk the column →</a>
+      </div>
+
+      <div class="card">
+        <h2>↻ Major transits — Saturn return, Mercury retrograde &amp; more</h2>
+        <p>The six big astrology moments — three retrogrades, two returns, the once-in-a-lifetime Pluto pass. What each one means, what it feels like, what to do, what to avoid, the deeper lesson. The seasons that mark a life.</p>
+        <a class="cta outline" href="/transits">Read the transits →</a>
+      </div>
+
+      <div class="card">
+        <h2>△ ☌ □ The 7 aspects — how planets talk to each other</h2>
+        <p>If signs are <em>how</em> and houses are <em>where</em>, aspects are <em>who they're talking to</em>. Conjunction, sextile, square, trine, opposition, quincunx, semi-sextile — the geometry of your inner conversation. Each with its gift, its work, and its lesson.</p>
+        <a class="cta outline" href="/aspects">Read the aspects →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌑🌓🌕🌗 The 8 phases of the moon — your monthly cycle</h2>
+        <p>From the New Moon's blank page to the Full Moon's reveal to the Waning Crescent's quiet rest. Eight phases, each with its own ritual, its own work, its own lesson. Each guide pairs with a chakra, a healing meditation, and a stone.</p>
+        <a class="cta outline" href="/lunar-phases">Walk the cycle →</a>
+      </div>
+
+      <div class="card">
+        <h2>🐉 The 12 animals of the Chinese zodiac</h2>
+        <p>Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig — twelve year-animals carrying the five elements. Personality, in love, in career, who they match with, the year ahead. Pairs beautifully with your Western chart.</p>
+        <a class="cta outline" href="/chinese-zodiac">Find your animal →</a>
+      </div>
+
+      <div class="card">
+        <h2>🐺 The 12 spirit animals walking with us</h2>
+        <p>Wolf, Eagle, Bear, Owl, Lion, Hawk, Snake, Butterfly, Deer, Fox, Horse, Hummingbird — when an animal keeps showing up in your dreams or on your path, it's usually carrying a message. What each one means, when it appears, the gift, the shadow, the lesson. Each guide pairs with a chakra, a healing sound, and a stone.</p>
+        <a class="cta outline" href="/spirit-animals">Meet your spirit animal →</a>
+      </div>
+
+      <div class="card">
+        <h2>💞 Twin flames — the 8 stages of the journey</h2>
+        <p>Recognition, awakening, testing, crisis, runner &amp; chaser, surrender, reunion, mission. The most painful, most necessary spiritual relationship there is. What each stage feels like, how to know which one you're in, what helps, what to stop doing. Written warm, written by someone who has lived it.</p>
+        <a class="cta outline" href="/twin-flames">Walk the journey →</a>
+      </div>
+
+      <div class="card">
+        <h2>💤 Dreams — what your unconscious is telling you</h2>
+        <p>Snake, falling, teeth, being chased, water, death, flying, fire, naked, baby, spider, ex-partner. The 12 dreams every adult has had. What each is processing, the common variants, the warning, the gift, the question to ask yourself. Almost no dream is literal — and the unconscious works hard while you sleep.</p>
+        <a class="cta outline" href="/dreams">Read your dream →</a>
+      </div>
+
+      <div class="card">
+        <h2>🃏 Tarot spreads — how to read each layout</h2>
+        <p>Three-card, Celtic Cross, love, yes/no, career, daily draw, relationship, year-ahead. The 8 spreads every reader uses. When to pick each one, the position-by-position layout, how to read it, common mistakes, the deeper lesson. Pairs with the 22-card Major Arcana guides — each spread cross-links to the cards that show up most often inside it.</p>
+        <a class="cta outline" href="/tarot/spreads">Pick a spread →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌀 Personal Year cycle — what year of the 9-year cycle are you in?</h2>
+        <p>Everyone is in a 9-year cycle. Year 1 plants seeds, Year 5 brings change, Year 7 is the inner year, Year 8 is harvest, Year 9 is closure. Calculate yours from your birth month + day + the current year. Each year carries its own theme, its own gift, its own shadow, its own daily practice. Knowing the year you are in is the difference between pushing against the current and using it. Distinct from your Life Path number (which is your soul's identity and does not change) — Personal Year is the energy of THIS calendar year for you specifically.</p>
+        <a class="cta outline" href="/personal-year">Find your personal year →</a>
+      </div>
+
+      <div class="card">
+        <h2>🪬 The 8 clair senses — am I psychic? find your channel</h2>
+        <p>Clairvoyance (clear seeing), clairaudience (clear hearing), claircognizance (clear knowing), clairsentience (clear feeling), clairempathy (clear emotional reading), clairalience (clear smelling), clairgustance (clear tasting), clairtangency (clear touching / psychometry). The 8 channels through which intuition speaks. Every human has at least one — most have a primary plus a secondary. Distinct from the 7 empath types (which is which kind of signal you receive); the clairs are <em>how the message gets in</em>.</p>
+        <a class="cta outline" href="/clair-senses">Find your clair →</a>
+      </div>
+
+      <div class="card">
+        <h2>🎴 Tarot court cards — Page, Knight, Queen, King × 4 suits</h2>
+        <p>The 16 court cards every reader gets stuck on — Page of Cups through King of Pentacles. Plus the 4 suit overviews (Cups=feeling, Wands=fire, Swords=mind, Pentacles=body). Read by rank for the maturity, by suit for the realm, then ask: who in my life is bringing this energy — or which version of me is being asked to step forward? Together with the 22 Majors and the 8 spreads, this completes the most-searched half of the 78-card tarot deck.</p>
+        <a class="cta outline" href="/tarot/court">Read the court →</a>
+      </div>
+
+      <div class="card">
+        <h2>🃏 Tarot minor arcana — all 40 pip cards (Ace through Ten)</h2>
+        <p>The 40 most-pulled cards in any tarot reading — Ace of Cups through Ten of Pentacles. Every card explained: upright meaning, reversed, in love, in work, the gift, the shadow, when you pull this card, three honest questions. Together with the 22 Majors, 16 Courts, 4 Suits, and 8 Spreads — this <strong>completes the full 78-card tarot deck</strong> on gab44. Read the suit for the realm (heart, will, mind, matter), the rank for the stage (1=beginning · 10=completion), then ask: where is this energy showing up in my life right now?</p>
+        <a class="cta outline" href="/tarot/minors">Read all 40 minors →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌈 Aura colors — the energy field around you</h2>
+        <p>Red, orange, yellow, green, blue, indigo, violet, pink, white. The 9 main aura colors — what each one says about you, the gifts, the shadows, signs your aura is strong vs muddy. Distinct from chakras (which are inside the body); auras are the field around it.</p>
+        <a class="cta outline" href="/auras">Read your aura →</a>
+      </div>
+
+      <div class="card">
+        <h2>✨ Manifestation methods — 369, scripting, pillow, whisper, mirror &amp; more</h2>
+        <p>The 10 most popular methods explained without TikTok hype: 369, scripting, pillow, whisper, 5x55, two cup, 17-second rule, vision board, letter to the universe, mirror. How each one actually works, step-by-step, common mistakes, and the deeper truth most teachers leave out — including which one is right for which kind of desire.</p>
+        <a class="cta outline" href="/manifestation">Pick your method →</a>
+      </div>
+
+      <div class="card">
+        <h2>💎 Crystals by intent — for anxiety, love, money, sleep, protection &amp; more</h2>
+        <p>10 hand-written kits by what you're actually trying to feel or shift: crystals for anxiety, sleep, love, money, protection, confidence, grief, clarity, healing, manifestation. Top 3 stones per kit, supporting stones, how to use them, cleanse them, charge them — and the deeper truth about what crystals can and can't do. Distinct from per-sign crystals (which are about your zodiac); these are about your season.</p>
+        <a class="cta outline" href="/crystals-intent">Pick your kit →</a>
+      </div>
+
+      <div class="card">
+        <h2>ᚠ Elder Futhark runes — all 24 meanings</h2>
+        <p>Pulled a rune and want the meaning right now? All 24 Elder Futhark runes — Fehu (cattle, abundance) through Othala (ancestral home). Each one carries the upright reading, the reversed/merkstave reading, what it means in love and in work, the gift it teaches, and the shadow it casts. Norse divination, written warm — distinct from tarot (78 cards, narrative) because runes are 24 *forces*, closer to weather than to characters.</p>
+        <a class="cta outline" href="/runes">Pull a rune →</a>
+      </div>
+
+      <div class="card">
+        <h2>☥ Spiritual symbols — 12 most-asked meanings</h2>
+        <p>Wearing an ankh, a hamsa, an evil eye? Drawn to the lotus, the om, the triquetra in a dream? The 12 most-searched spiritual symbols across all of search — origin, meaning, the message it carries, the misuse to avoid, the gift it teaches, the shadow it casts. Four families: protection (hamsa, eye of horus, evil eye), devotion (ankh, om, lotus), cosmos (mandala, yin-yang, tree of life), pagan craft (triquetra, pentagram, triple moon). A symbol is not jewellery — it is a contract. Pick the one whose work you want to do.</p>
+        <a class="cta outline" href="/symbols">Read a symbol →</a>
+      </div>
+
+      <div class="card">
+        <h2>💗 The 7 types of empath — which one are you?</h2>
+        <p>You feel things other people don't feel. The question is *which* things, and *how* the information arrives. Three registers, seven types: feeling-types (emotional, physical), knowing-types (intuitive, heyoka), world-types (geomantic, plant-animal, dream). Every page has the actual signs (so you can recognise yourself), the gift you carry, the shadow it casts when untrained, and the protection practice that keeps the channel without making you the channel. Most empaths are a primary plus a secondary — read the closest type first.</p>
+        <a class="cta outline" href="/empath-types">Find your type →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌸 Sacred geometry — 10 patterns mystics keep pointing at</h2>
+        <p>From the Flower of Life (the master pattern, found in Egyptian temples and Renaissance manuscripts) to the Fibonacci Spiral (nature's growth signature, in shells and galaxies). Three families: circles-of-life (flower, seed, fruit, vesica) = the unfolding family; cosmic 3D (metatron's cube, merkaba, platonic solids, torus) = the building blocks; flow patterns (sri yantra, fibonacci) = the growth signatures. Symbols hang on walls; geometries hold the wall up — meaning, history, and the practice each shape is asking you to embody.</p>
+        <a class="cta outline" href="/sacred-geometry">Read a geometry →</a>
+      </div>
+
+      <div class="card">
+        <h2>🎧 Solfeggio frequencies — all 9 tones, what each one carries</h2>
+        <p>From 174 Hz (foundation, the body settles) to 963 Hz (unity, separation dissolves). Six of the nine tones map one-to-one onto the chakras — the cleanest sound-to-body map there is. Each frequency has a job (release, change, love, connection, expression, awakening), a chakra, and a practice that makes it land. Honest about both what the tone *does* (signals permission) and what it *doesn't* (do the work for you).</p>
+        <a class="cta outline" href="/solfeggio">Find your frequency →</a>
+      </div>
+
+      <div class="card">
+        <h2>🪷 The Eight Limbs of Yoga — Patanjali's path</h2>
+        <p>The canonical 8-limb framework from the <em>Yoga Sutra</em> (c. 200 BCE-200 CE): <em>yama</em> (ethics) → <em>niyama</em> (observance) → <em>asana</em> (posture) → <em>pranayama</em> (breath) → <em>pratyahara</em> (sense-withdrawal) → <em>dharana</em> (concentration) → <em>dhyana</em> (meditation) → <em>samadhi</em> (absorption). The master frame that holds every body-practice and meditation-practice gab44 publishes — each limb page positions our mantras, mudras, asanas, and pranayamas as steps on this canonical path.</p>
+        <a class="cta outline" href="/gab44/limbs">Walk the eight-limb path →</a>
+      </div>
+
+      <div class="card">
+        <h2>📿 Mantras — 12 sacred chants, what they mean &amp; how to chant</h2>
+        <p>From <em>Om</em> (the seed of all sound) to <em>Om Ah Hum</em> (body, speech, mind). Three families: seed mantras (Om, So Hum, Sat Nam — the bija sounds), heart mantras (Om Mani Padme Hum, Lokah Samastah, Tara, Shanti — the compassion family), and power mantras (Gayatri, Om Namah Shivaya, Ganesha, Hare Krishna, Om Ah Hum — the devotion family). Each page has the actual lineage, the translation, the concrete chant practice, and honest framing about appropriation. Cross-tied to the chakra and the healing audio that pair with each one.</p>
+        <a class="cta outline" href="/mantras">Read a mantra →</a>
+      </div>
+
+      <div class="card">
+        <h2>🤲 Mudras — 16 sacred hand gestures, what they carry &amp; how to hold</h2>
+        <p>Sound + gesture is the canonical yogic-buddhist pairing — mudras are the body half of the offering mantras give voice to. From <em>Gyan</em> (the meditation gesture, finger meets thumb) and <em>Anjali</em> (palms at heart, namaste) to <em>Kalesvara</em> (the time-stilling gesture for the racing mind). Three families: foundation (Gyan, Chin, Anjali, Dhyana, Prana — the daily-gesture family), heart (Hridaya, Padma, Abhaya, Varada, Bhumisparsha — the compassion family), and power (Shuni, Surya, Vayu, Apana, Shunya, Kalesvara — the elemental family balancing the five elements and the inner planets). Each page has the lineage (Hatha Yoga Pradipika, Gheranda Samhita, Buddhist iconography), what the gesture does in the body and nervous system, how to form it (finger placement, breath, duration), the gift, the shadow.</p>
+        <a class="cta outline" href="/gab44/mudras">Find your mudra →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌬️ Pranayama — 10 breath practices, what they do &amp; how to practise</h2>
+        <p>Breath is the third leg of the body-practice tripod. From <em>Nadi Shodhana</em> (the daily balancing breath, alternate-nostril) and <em>Ujjayi</em> (the ocean breath that holds a yoga practice together) to <em>Wim Hof</em> (the modern cold-and-breath protocol). Three families: foundation (Nadi Shodhana, Ujjayi, Diaphragmatic, Box — the daily-safe family), cooling (Bhramari humming-bee, Sitali tongue-curl, 4-7-8 — the parasympathetic family), and heating (Kapalabhati skull-shining, Bhastrika bellows, Wim Hof — the sympathetic family). Each page has the actual rhythm, the lineage, what the breath does in the body and the nervous system, and the contraindications named explicitly.</p>
+        <a class="cta outline" href="/gab44/pranayama">Find your breath →</a>
+      </div>
+
+      <div class="card">
+        <h2>🧘 Asanas — 16 yoga poses, what they carry &amp; how to practise</h2>
+        <p>Posture is the fourth leg of the body-practice quadrant — sound, gesture, breath, and now <em>shape</em>. From <em>Tadasana</em> (the daily standing pose, mountain) and <em>Balasana</em> (child's pose, the universal rest) to <em>Ananda Balasana</em> (the bliss-child pose). Four families: grounding (Mountain, Child, Down-Dog, Corpse — the daily family), heart (Cobra, Camel, Bridge, Fish — the chest-throat openers), power (Warrior One, Tree, Chair, Plank — the activating family), and restorative (Legs-Up-the-Wall, Butterfly, Seated Forward Fold, Happy Baby — the surrender family). Each page has the actual alignment, the Sanskrit lineage, the contraindications, the gift, and the shadow.</p>
+        <a class="cta outline" href="/gab44/asanas">Find your pose →</a>
+      </div>
+
+      <div class="card">
+        <h2>👼 Archangels — meanings, signs &amp; how to call</h2>
+        <p>The 9 most-invoked archangels — Michael (the sword that cuts every cord), Gabriel (the messenger of every great beginning), Raphael (the emerald healer of body and journey), Uriel (the lamp through the dark night), Chamuel (the rose-pink eye that finds what was lost), Jophiel (the sunflower that lifts the heavy thought), Zadkiel (the violet flame of forgiveness), Raziel (the keeper of mysteries), Metatron (the scribe at the throne, the soul-records). Each page has the actual lineage, 5 specific signs they are with you, the concrete invocation, the gift, and honest naming of the shadow.</p>
+        <a class="cta outline" href="/archangels">Meet the archangels →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌱 Doshas — find your Ayurvedic constitution</h2>
+        <p>The medical-philosophical frame that the entire yogic body-practice quadrant sits inside. Three doshas — <em>vata</em> (air + ether, the moving), <em>pitta</em> (fire + water, the transforming), <em>kapha</em> (water + earth, the stabilizing). From the Charaka Samhita (c. 100 CE) and Sushruta Samhita (c. 600 BCE). Each page has the physical signs, the mental signs, the gift, the shadow, and how to balance with diet, asana, and pranayama. Pairs natively with the body-practice cluster — your dosha tells you which pranayama, which asana, which mantra is medicine for you specifically.</p>
+        <a class="cta outline" href="/gab44/doshas">Find your dosha →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌸 Bach Flower Remedies — all 38 essences</h2>
+        <p>Dr. Edward Bach's 1936 system. The most emotionally direct surface in the funnel — each remedy addresses ONE specific named state. <strong>Fear (5):</strong> Rock Rose (terror), Mimulus (known fears), Cherry Plum (fear of losing control), Aspen (vague dread), Red Chestnut (fear for others). <strong>Uncertainty (6):</strong> Cerato, Scleranthus, Gentian, Gorse, Hornbeam, Wild Oat. <strong>Not present (7):</strong> Clematis (drift), Honeysuckle (past), Wild Rose (apathy), Olive (exhaustion), White Chestnut (loops), Mustard (cloud), Chestnut Bud (repeats). <strong>Loneliness (3):</strong> Water Violet, Impatiens, Heather. <strong>Over-sensitive (4):</strong> Agrimony (mask), Centaury (no boundaries), Walnut (transition), Holly (hatred). <strong>Despair (8):</strong> Larch, Pine, Elm, Sweet Chestnut, Star of Bethlehem, Willow, Oak, Crab Apple. <strong>Over-care (5):</strong> Chicory, Vervain, Vine, Beech, Rock Water. Each page: the state, the shift, in love, in work, a 5-minute practice, chakra + crystal pair.</p>
+        <a class="cta outline" href="/gab44/bach-flowers">Find your remedy →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌙 Nakshatras — all 27 Vedic lunar mansions</h2>
+        <p>The finer-resolution Vedic wheel — the 27 divisions of the ecliptic the Moon traverses in a sidereal month, three nakshatras to every two zodiac signs. <em>Ashwini</em> (the first hooves, Aries 0°), <em>Bharani</em> (the bearing-vessel, Yama's threshold), <em>Krittika</em> (Agni's purifying blade, the foster-mothers of Skanda), <em>Rohini</em> (the Moon's exaltation, the chariot of growth) … through to <em>Revati</em> (Pushan's safe passage, the fish that brings the wanderer home, Pisces 30°). Lineage: Vedanga Jyotisha (c. 1400-1200 BCE), Brihat Parashara Hora Shastra (c. 4th c. CE). Each page has the deity, the planetary ruler, the symbol, the gana, what the nakshatra is in love and in work, the gift, the shadow. Your <em>Moon's nakshatra</em> is the single most predictive Vedic placement — finer than a Sun-sign, more specific than a Vedic dosha.</p>
+        <a class="cta outline" href="/gab44/nakshatras">Find your nakshatra →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌿 Yamas &amp; Niyamas — the 10 ethics of Patanjali</h2>
+        <p>The first two limbs of yoga, expanded into the 10 individual ethics they contain. <strong>5 yamas (outward, sunrise saffron):</strong> <em>ahimsa</em> (non-violence), <em>satya</em> (truthfulness), <em>asteya</em> (non-stealing), <em>brahmacharya</em> (right use of energy), <em>aparigraha</em> (non-grasping). <strong>5 niyamas (inward, dusk indigo):</strong> <em>saucha</em> (cleanliness), <em>santosha</em> (contentment), <em>tapas</em> (discipline), <em>svadhyaya</em> (self-study), <em>ishvara-pranidhana</em> (surrender to the divine). From Yoga Sutras 2.30 + 2.32. Each page names the sutra reference, the <em>fruit</em> Patanjali names (YS 2.35–2.45 — "in the presence of one rooted in ahimsa, hostility ceases" / "from contentment, unsurpassable happiness" / "from surrender, samadhi itself"), and a 30-day practice. The ground under every other practice.</p>
+        <a class="cta outline" href="/gab44/yamas-niyamas">Walk the 10 ethics →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌳 Sefirot — Tree of Life, all 10 sephirot</h2>
+        <p>The Kabbalistic <em>Etz Chaim</em> — the canonical Western mystical map. Ten sephirot down three pillars: <em>Kether</em> (crown, the unknowable source), <em>Chokmah</em> &amp; <em>Binah</em> (wisdom and understanding), <em>Chesed</em> &amp; <em>Geburah</em> (mercy and severity), <em>Tiferet</em> (beauty, the heart of the tree), <em>Netzach</em> &amp; <em>Hod</em> (eternity and splendor), <em>Yesod</em> (foundation, dream and astral), <em>Malkuth</em> (kingdom, embodied earth). Lineage: Sefer Yetzirah (c. 200 CE), the Zohar (c. 1280 CE), Lurianic Kabbalah (c. 1570 CE). Each sefirah page pairs with its archangel, planet, tarot card, and chakra — the densest internal-link surface on gab44.</p>
+        <a class="cta outline" href="/gab44/sefirot">Walk the Tree of Life →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌹 Goddesses — archetypes, signs &amp; how to call</h2>
+        <p>12 goddess archetypes from living traditions — Lilith (the first refusal, sovereignty), Hecate (the threshold-keeper at the crossroads), Kali (fierce love that destroys what enslaves), Inanna (the descender through the seven gates), Kuan Yin (the heart that hears), Tara (the swift compassion), Mary Magdalene (apostle of the apostles), Brigid (sacred flame, healing wells), Isis (the gatherer of the scattered), Sophia (cosmic wisdom), Aphrodite (eros as sacred path), Persephone (queen of the two realms). Honest about lineage, honest about appropriation. Each page has the recognition signs, the concrete invocation, the gift and the shadow.</p>
+        <a class="cta outline" href="/goddesses">Meet the goddesses →</a>
+      </div>
+
+      <div class="card">
+        <h2>☯ I Ching — all 64 hexagrams</h2>
+        <p>The <em>Yi Jing</em>, the <em>Book of Changes</em> — c. 1000 BCE Zhou-dynasty core, the oldest divination text in continuous use. Sixty-four hand-written guides in classical King Wen order. The Creative · The Receptive · Difficulty at the Beginning · Waiting · Conflict · The Army · ... · Before Completion. Four families: Beginnings (the foundational images), Cycles (how the situation moves), Trials (the descent and the well), Completion (revolution, cauldron, before-and-after). Each page: the hexagram, when you pull it, the changing lines, in love, in work, the gift, the shadow.</p>
+        <a class="cta outline" href="/iching">Consult the I Ching →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌑 Kleshas — Patanjali's 5 yogic afflictions</h2>
+        <p>Yoga Sutra II.3-II.9 — the five obstacles the eight limbs were designed to dissolve. <em>Avidya</em> (the root: mistaking the impermanent for the permanent, the body for the self — the master ignorance). And its four branches: <em>asmita</em> (the I-am-ness that confuses the witness with the witnessed), <em>raga</em> (the pull that follows pleasure), <em>dvesha</em> (the push that follows pain), <em>abhinivesha</em> (the cellular clinging to life — present, Patanjali notes, <em>even in the wise</em>). Where the yamas + niyamas are what you <em>practice</em>, the kleshas are what you <em>see</em>. Each page names the source-sutra, what the klesha looks like in love and in work, the gift, the shadow, and the direct ethical antidote.</p>
+        <a class="cta outline" href="/gab44/kleshas">See the 5 afflictions →</a>
+      </div>
+
+      <div class="card">
+        <h2>🪷 Hindu Devas — the 12 most-searched Sanskrit deities</h2>
+        <p>The <em>who</em> behind every mantra, mudra, asana, pranayama, eight-limb, yama/niyama, klesha, dosha, and nakshatra already on gab44. Four families. <strong>Trimurti</strong> (saffron / sky-blue / obsidian): <em>Brahma</em> the creator, <em>Vishnu</em> the preserver, <em>Shiva</em> the transformer. <strong>Avatars</strong> (indigo / jade / sindoor): <em>Krishna</em> the divine lover, <em>Rama</em> the dharmic king, <em>Hanuman</em> the perfect devotee. <strong>Mahadevis</strong> (gold / white / crimson / rose): <em>Lakshmi</em> abundance, <em>Saraswati</em> wisdom, <em>Durga</em> warrior, <em>Parvati</em> devoted householder. <strong>Sons of Shiva</strong> (rose / peacock): <em>Ganesh</em> remover of obstacles, <em>Kartikeya</em> spiritual warrior. Each page: source-text (Rig Veda hymn / Purana / Ramayana / Gita / Kalidasa / Tulsidas / Arunagirinathar), the iconography, the canonical invocation, in love + in work, the gift, the shadow (Hindutva weaponization, commercial flattening, appropriation — named honestly per deva), paired chakra + mantra.</p>
+        <a class="cta outline" href="/gab44/devas">Meet the 12 devas →</a>
+      </div>
+
+      <div class="card">
+        <h2>⚡ Olympian Gods — the 12 beings behind the zodiac</h2>
+        <p>The peer pantheon to the Hindu devas and Norse gods. The Greek Olympians every zodiac sign on gab44 has been invoking silently — Aries is Ares, Libra is Aphrodite, Sagittarius is Zeus, Pisces is Poseidon. Three families. <strong>Cronid sovereigns</strong> (gold / rose / sea-blue / wheat): <em>Zeus</em> the thunderer-king, <em>Hera</em> the queen of heaven, <em>Poseidon</em> the earth-shaker, <em>Demeter</em> the grain-mother of the Eleusinian Mysteries. <strong>Bright Olympians</strong> (grey-eyed / sun-gold / moon-silver / rose): <em>Athena</em> wisdom-strategist, <em>Apollo</em> prophecy-music-healing-plague, <em>Artemis</em> lady of wild things, <em>Aphrodite</em> foam-born desire. <strong>Workshop & ecstatic</strong> (crimson / forge-bronze / mercury / wine-purple): <em>Ares</em> slayer of men, <em>Hephaestus</em> the lame smith, <em>Hermes</em> the messenger-psychopomp, <em>Dionysus</em> the twice-born dying-and-rising god. Each page: Homer-Hesiod source-honest (Iliad, Theogony, the Homeric Hymns, Euripides Bacchae, Apollodorus, Pausanias), iconography, invocation (Tuesday-Mars, Wednesday-Mercury, Thursday-Jupiter, Friday-Venus across Romance languages), in love + in work, the gift, the shadow (19th-c. Hellenist-supremacist appropriation, sanitized rape-myths in Zeus & Apollo, white-marble fantasy, Nazi-era Olympia, Disney/Percy Jackson flattening — named honestly per god), paired zodiac sign + planet.</p>
+        <a class="cta outline" href="/gab44/olympians">Meet the 12 Olympians →</a>
+      </div>
+
+      <div class="card">
+        <h2>☥ Egyptian Gods — 12 deities of the Two Lands</h2>
+        <p>The densest grief / death / threshold / household-protection cluster in all of comparative mythology. Three families. <strong>Solar Court</strong> (gold / coral / amber / crimson): <em>Ra</em> the king who fights Apophis at the seventh hour, <em>Horus</em> the falcon-heir who inherits the throne, <em>Hathor</em> the golden cow-mother of joy and music, <em>Sekhmet</em> the lioness whose Festival of Drunkenness brings her home. <strong>Osirian Cycle</strong> (green / lapis / black / red): <em>Osiris</em> the first who died and rose, <em>Isis</em> Great-of-Magic who gathered the fourteen pieces, <em>Anubis</em> the jackal at the Weighing of the Heart, <em>Set</em> the brother-disturber who also slays Apophis nightly. <strong>Memphite &amp; Hermopolitan</strong> (turquoise / mercury / feather-white / cat-green): <em>Ptah</em> the master-craftsman who creates by heart-and-tongue (the Logos-theology fifteen centuries before John's Gospel), <em>Thoth</em> Trismegistus scribe-of-the-gods, <em>Ma'at</em> the cosmic-truth-feather, <em>Bastet</em> the household-cat-protector. Each page: Pyramid-Text / Coffin-Text / Book-of-the-Dead / Plutarch / Herodotus source-honest, iconography, invocation, in love + in work, the gift, the shadow (Egyptomania racial-erasure, Hollywood-Anubis-as-villain, Thelemic Horus, New-Age Isis, white-nationalist Set, the silent extraction of Ptah-Logos and Ma'at-wisdom into Hermetic / Christian / New-Age Western religion — named honestly per god), paired zodiac sign + planet.</p>
+        <a class="cta outline" href="/gab44/egyptian-gods">Meet the 12 Egyptian gods →</a>
+      </div>
+
+      <div class="card">
+        <h2>☘️ Celtic Gods — the 12 Tuatha Dé Danann</h2>
+        <p>The Iron Age Irish-Celtic pantheon — the People of the Goddess Danu — whose place-names still cover Ireland and whose sabbats are the Wheel of the Year on gab44 (Imbolc is Brigid's day, Lughnasadh is named for Lugh, Samhain is the Morrígan's-and-Macha's threshold, Beltane is Cernunnos-and-Aengus-peak-fertility). Three families. <strong>Sovereigns of the Tuatha</strong> (gold / emerald): <em>the Dagda</em> the all-father with the cauldron-of-plenty and the great-club-of-life-and-death, <em>Danu</em> the primordial river-mother for whom the entire pantheon is named (the Danube and the Don bear her name across the Indo-European arc), <em>Lugh</em> Lámhfada the Many-Skilled sun-king who killed Balor of the Evil Eye with one spear-throw, <em>Nuada</em> Airgetlám the first king with the silver arm whose Lydney-Park Romano-British healing-cult was decoded by J.R.R. Tolkien. <strong>Trí Dée Dána · craft & inspiration</strong> (copper / silver / bronze): <em>Brigid</em> the triple-goddess of fire-poetry-smithcraft and keeper of the perpetual flame at Kildare (Christianized as Saint Brigid without continuity-break, re-lit by the Brigidine Sisters in 1993), <em>Ogma</em> champion-of-words and inventor of the Ogham script (the Gaulish Ogmios whose chains of amber and gold ran from his tongue to the ears of his followers), <em>Goibniu</em> the divine smith who forged the unbeatable spears with three strokes and brewed the Fled Goibnenn ale of immortality, <em>Aengus Óg</em> the dreamer-lover of the Aislinge Óenguso whose four kisses became the songbirds that fly around lovers in Irish poetry forever. <strong>Threshold & Wild</strong> (stag-brown / sea-blue / raven-black / blood-red): <em>Cernunnos</em> the Horned One whose cross-legged Lord-of-the-Beasts pose is preserved on the Pillar of the Boatmen Paris c. 14-37 CE and the Gundestrup Cauldron Denmark c. 100 BCE (the medieval Devil acquired his antlers in 11th-13th-c. Christian art), <em>Manannán mac Lir</em> the sea-god and master of the Féth Fíada magical-mist who hid the Tuatha after their defeat, <em>the Morrígan</em> the triple-Great-Queen of war-and-sovereignty-and-prophecy who united with the Dagda at the ford on Samhain, <em>Macha</em> the sovereignty-and-horses goddess for whom Emain Macha and Ard Macha are named (the foundational Irish proto-feminist Macha-Mongruad who defeated five male claimants to the high-kingship and ruled alone). Each page: Lebor-Gabála / Cath-Maige-Tuired / Táin-Bó-Cúailnge / Mabinogi / Pillar-of-the-Boatmen / Gundestrup-Cauldron source-honest, iconography, invocation, in love + in work, the gift, the shadow (Celtic-Twilight romantic-revival flattening, Iolo-Morganwg 18th-c. forgeries, Margaret-Murray witch-cult-hypothesis, white-nationalist Cernunnos co-option, Christian erasure of the Morrígan, the silent extraction of Brigid into Saint-Brigid, the Saint-Patrick overlay on Ard Macha — named honestly per god), paired zodiac sign + planet + sabbat.</p>
+        <a class="cta outline" href="/gab44/celtic-gods">Meet the 12 Celtic gods →</a>
+      </div>
+
+      <div class="card">
+        <h2>🥁 Orishas — the 12 deities of the Yoruba pantheon</h2>
+        <p>The first Afro-diasporic pantheon on gab44. The orishas of the Yoruba homeland (southwestern Nigeria) and the African Atlantic diaspora — Cuban Lukumí / Santería, Brazilian Candomblé, the African-American spiritual lineages — whose festivals on the beaches of Salvador da Bahia and Rio de Janeiro every December 31 and February 2 fill the Atlantic with white-clad celebrants by the million. Three families. <strong>Heads of Heaven</strong> (white-cloth / red-and-black / volcano / deep-indigo): <em>Obatalá</em> the cool-headed elder who sculpted human heads from clay and owns every <em>orí</em> (destiny-of-the-head), <em>Eleguá</em> (Èṣù-Elégbára) the crossroads-opener honored-first in every ritual and catastrophically mistranslated by 19th-c. missionaries as "the devil," <em>Aganjú</em> the volcano-king-and-ferryman of the impossible-passage (syncretized as Saint Christopher), <em>Olokun</em> the unseen owner of the depths whose face you cannot look at and who in diaspora-practice became the ancestor of the Middle-Passage drowned. <strong>Mothers & Lovers of Water</strong> (ocean-blue / river-gold / storm-purple / earth-burlap): <em>Yemayá</em> (Iemanjá) the mother of all orishas whose Brazilian December-31-beach-festival is the largest Afro-religious gathering in the world, <em>Oshún</em> the river-of-honey-and-gold patron-saint of Cuba and the only female orisha who can speak Ifá, <em>Oyá</em> (Iansã) the storm-wind-and-cemetery-gatekeeper who is the only orisha who can lead the dead through the gates, <em>Babalú-Ayé</em> the wounded-healer-of-disease syncretized as Saint Lazarus the leper who in the 1980s-90s diaspora became the primary orisha of refuge for HIV-positive practitioners. <strong>Warriors & Hunters of the Forest</strong> (thunder-red-white / iron-green-black / bow-turquoise / herb-green): <em>Shangó</em> the king of thunder who was the historical fourth Alaafin of the Oyo Empire (<em>Oba ko so</em> — the king did not hang), <em>Ogún</em> the owner of iron and road-cutter whose modern domain has expanded to cars-airplanes-electronics, <em>Oshosi</em> the hunter-archer of justice whose Saint-Sebastian syncretization is the namesake of Rio de Janeiro, <em>Òsanyìn</em> the one-eyed-one-armed-one-legged owner of all herbs without whose permission no other orisha can be fed. Each page: Ifá-Odu / Pataki / Bascom / Verger / Cabrera / Thompson source-honest, iconography, invocation, in love + in work, the gift, the shadow (Eshu-as-devil missionary mistranslation, Hollywood voodoo demonization, Catholic-saint syncretization as both survival-strategy and modern-erasure, post-2015 uninitiated-white commercial commodification — named honestly per orisha), lineage-respectful (introduction-not-consecration), paired zodiac sign + planet + chakra.</p>
+        <a class="cta outline" href="/gab44/orishas">Meet the 12 orishas →</a>
+      </div>
+
+      <div class="card">
+        <h2>𒀭 Mesopotamian Gods — the 12 Sumerian-Akkadian-Babylonian deities · the cradle of the zodiac</h2>
+        <p>The seventh great pantheon on gab44 — and the <em>oldest written religion</em> on the site (clay-tablet attestation from c. 3000 BCE Sumer) and the <em>literal source</em> of the 12-sign zodiac and the 7 classical planets that every other astrological surface on gab44 is downstream of (the MUL.APIN astronomical compendium c. 1000 BCE is the canonical source-document). Three families. <strong>Anu-Enlil sovereigns of the cosmos</strong> (sky-blue / wind-storm / fresh-water / primordial-salt): <em>Anu</em> sky-father atop the 7-tier ziggurat-cosmos, <em>Enlil</em> wind-and-storm Lord-of-the-Air whose Ekur temple at Nippur was the cosmic-centre, <em>Enki / Ea</em> the freshwater-craftsman-trickster of the Abzu who saved humanity in Atra-Hasis (the Mesopotamian Noah), <em>Tiamat</em> the primordial salt-water-mother defeated by Marduk in the Enuma Elish. <strong>Astral court</strong> (sun-gold / moon-silver / Venus-rose / city-purple): <em>Shamash / Utu</em> sun-judge under whose patronage Hammurabi received the Code, <em>Sin / Nanna</em> moon-king whose Lament for Ur is the oldest preserved city-elegy, <em>Inanna / Ishtar</em> the Descent-to-the-Underworld goddess whose three-days-on-the-hook predates Christ by 2,000 years, <em>Marduk</em> Babylon's patron who killed Tiamat and built the cosmos from her body. <strong>Underworld &amp; specialists</strong> (war-red / scribe-indigo / hunter-bronze / queen-obsidian): <em>Nergal</em> plague-and-war king of Kutha, <em>Nabu</em> the scribal Lord of Ezida at Borsippa whose name became the Hebrew nāḇîʾ "prophet" (Mount Nebo), <em>Ninurta</em> hunter-warrior of the Anzu-Bird-slaying epic, <em>Ereshkigal</em> queen of the underworld and Inanna's elder sister. Enuma-Elish, Gilgamesh, Descent-of-Inanna, Atra-Hasis, Hammurabi, Enheduanna, MUL.APIN source-honest. Biblical-extraction-honest: Atra-Hasis→Noah, Hammurabi→Mosaic law, Nabu→nāḇîʾ, Inanna→Marian Queen-of-Heaven, three-days-on-the-hook→resurrection. First pantheon on gab44 covering ALL 12 zodiac signs.</p>
+        <a class="cta outline" href="/gab44/mesopotamian-gods">Meet the 12 Mesopotamian gods →</a>
+      </div>
+
+      <div class="card">
+        <h2>🪶 Aztec / Mexica Gods — the 12 deities of Tenochtitlán</h2>
+        <p>The eighth great pantheon — and the <em>first pre-Columbian pantheon</em> on gab44, closing the geographic gap of the Americas. The youngest fully-documented great pantheon (Tenochtitlán 1325-1521 CE, less than 200 years of imperial-cult-practice but inheriting a millennium of pre-Mexica Mesoamerican religion from the Olmecs c. 1200 BCE, Teotihuacan c. 100-650 CE, and the Toltecs c. 950-1150 CE) — and the only one with <em>first-generation conquistador-and-friar ethnography</em> (Bernardino de Sahagún interviewed surviving Mexica elders in Nahuatl in the 1550s-1580s and the 12-book Florentine Codex is the result). Three families. <strong>Primordial &amp; Cosmic</strong> (cosmic-violet / quetzal-jade / smoking-obsidian / Fifth-Sun-coral): <em>Ometeotl</em> the cosmic-dual-principle of Omeyocan-the-thirteenth-heaven invoked only in the philosophical-poetry of the tlamatinime; <em>Quetzalcoatl</em> the feathered-serpent civilizer-priest-king whose return-prophecy Moctezuma II mistook for Cortés in 1519 — the single-most-politically-consequential religious-mistake in world history; <em>Tezcatlipoca</em> the smoking-mirror trickster-fate-god whose Toxcatl-festival was the site of Pedro de Alvarado's 1520 massacre; <em>Tonatiuh</em> the Fifth-Sun whose Calendar Stone is the single-most-iconic Mexica sculpture. <strong>Earth, Water &amp; Fertility</strong> (storm-jaguar-blue / jade-river-teal / serpent-skirt-forest / cherry-cosmic-pink): <em>Tlaloc</em> the goggle-eyed storm-god with iconography unchanged from Teotihuacan c. 100 CE through 1521; <em>Chalchiuhtlicue</em> the jade-skirted lady-of-all-surface-water whose baptism-rite became Catholic baptism in unbroken continuity; <em>Coatlicue</em> the serpent-skirted earth-mother whose Coatlicue-Monolith was twice-buried by 18th-c. antiquarians as too-frightening; <em>Xochiquetzal</em> the flower-quetzal goddess of beauty, art, the in-xochitl-in-cuicatl flower-and-song aesthetic. <strong>War, Death &amp; Renewal</strong> (Mexica-blue / Mictlan-violet / Xipe-crimson / cosmic-Milky-Way): <em>Huitzilopochtli</em> the Hummingbird-of-the-Left whose eagle-on-the-cactus-with-the-snake omen is still the Mexican flag five centuries after conquest; <em>Mictlantecuhtli</em> the skeletal king of Mictlan whose Hueymiccailhuitl is the direct ancestor of the modern Day-of-the-Dead; <em>Xipe Totec</em> the Flayed Lord of agricultural-spring-renewal whose maize-seed-cosmology-applied-to-the-human-warrior-body is the most-philosophically-difficult Mexica ritual; <em>Mixcoatl</em> the Cloud-Serpent of the Milky-Way and cosmic-father of the Chichimec-hunter-lineage. Florentine-Codex / Codex-Borgia / Leyenda-de-los-Soles / Cantares-Mexicanos source-honest. Shadow-honest about Cortés 1519-1521, Landa's auto-da-fé 1562, the Black Legend, the Mexicayotl revival, the Penacho de Moctezuma repatriation dispute, and the 2017-2020 tzompantli skull-rack archaeological reinterpretations.</p>
+        <a class="cta outline" href="/gab44/aztec-gods">Meet the 12 Aztec gods →</a>
+      </div>
+
+      <div class="card">
+        <h2>⛩ Shinto Kami — the 12 deities of the Japanese pantheon</h2>
+        <p>The ninth great pantheon — and the <em>first East Asian pantheon</em> on gab44, closing the geographic gap of East Asia. Uniquely among great-world-pantheons, the only one that is still the <em>state-recognized national-cultic system of a contemporary G7 country</em> (~80,000 active Shinto shrines across Japan, ~3% identify as Shintoist but ~70% participate in at least one annual Shinto ritual). Three families. <strong>Celestial / Amatsukami</strong> (sun-gold / storm-cobalt / moon-silver / dawn-rose): <em>Amaterasu</em> the sun-goddess and ancestress of the imperial-line whose Ise Naikū has been rebuilt every 20 years for 1,300 years in the Shikinen Sengū continuity; <em>Susanoo</em> the storm-and-sea brother whose Yamata-no-Orochi slaying at the Hi River in Izumo produced the Kusanagi sword; <em>Tsukuyomi</em> the silent mysterious moon-brother whose Ukemochi-slaying ended cosmic sun-moon co-presence; <em>Ame-no-Uzume</em> the dawn-dancer whose ecstatic dance on the overturned tub at the heavenly-river-bed lured Amaterasu out of the Iwato rock-cave — the foundational performing-arts narrative of every kagura, gigaku, bugaku, noh, kabuki, and butoh. <strong>Earthly / Kunitsukami</strong> (earth-brown / vermillion-fox / forest-stag / dragon-blue): <em>Ōkuninushi</em> great-land-master of Izumo and kami of enmusubi-binding-of-all-relationships, host of the annual October Kamiari-conference at Izumo Taisha; <em>Inari</em> rice-and-fox-kami of ~32,000 of Japan's ~80,000 shrines (the most-numerous single kami), patron of Fushimi Inari Taisha with its iconic 10,000+ vermillion torii; <em>Sarutahiko</em> the great earthly-kami who met Ninigi at the Eight-Crossroads-of-Heaven and was disarmed by Uzume's laughing-grin; <em>Watatsumi</em> the dragon-king of the underwater Ryūgū-jō Dragon-Palace, source of the two cosmic-tide-jewels and cosmic-maternal-grandfather of the imperial-line via Toyotama-hime. <strong>Syncretic / Shinbutsu</strong> (warrior-purple / Sarasvatī-pearl / fisherman-coral / cherry-blossom-pink): <em>Hachiman</em> the warrior-Bodhisattva of ~25,000 shrines, the first kami granted the Buddhist title Daibosatsu in 749 CE inaugurating the honji-suijaku synthesis, patron of the Minamoto samurai and the Kamakura shogunate; <em>Benzaiten</em> the Indian-Vedic Sarasvatī arrived via the Sutra of Golden Light and fully-Japanized as the only female of the Seven Lucky Gods; <em>Ebisu</em> the only-fully-Japanese member of the Seven Lucky Gods, originally the rejected leech-child Hiruko cast out to sea and cosmic-rehabilitated as the laughing-fisherman-luck-kami; <em>Konohana-no-Sakuya-hime</em> the cherry-blossom-and-Mount-Fuji princess and cosmic-foundational figure of <em>mono no aware</em> (the cosmic-aesthetic of the pathos of ephemeral things). Kojiki (712 CE) / Nihon Shoki (720 CE) / Engishiki (927 CE) / Fudoki / Norito / Manyōshū / Motoori-Norinaga / Hardacre source-honest. Shadow-honest about the 1868 Meiji Shinbutsu-bunri separation that destroyed the 1,200-year-old Buddhist-Shinto honji-suijaku synthesis, State Shinto 1868-1945, the imperial-divinity-myth and Yasukuni-controversy, the Lafcadio-Hearn / Joseph-Campbell Western reductions to "nature-religion," and the post-Studio-Ghibli kami-as-anime-spirits flattening.</p>
+        <a class="cta outline" href="/gab44/shinto-kami">Meet the 12 Shinto kami →</a>
+      </div>
+
+      <div class="card">
+        <h2>🐦‍⬛ Norse Gods — the 10 beings behind the runes</h2>
+        <p>The peer pantheon to the Hindu devas. The Eddic gods the Elder Futhark on gab44 has been invoking silently in every cast — and the Norse strand behind Yule on the Wheel of the Year. Three families. <strong>Aesir court</strong> (Asgard sky): <em>Odin</em> the Allfather (one-eyed, hanged on Yggdrasil for the runes), <em>Thor</em> the thunderer, <em>Loki</em> the trickster, <em>Frigg</em> the foreknowing queen, <em>Tyr</em> the one-handed lawspeaker, <em>Heimdall</em> the watcher at Bifrost, <em>Baldur</em> the shining-one-who-returns-after-Ragnarök. <strong>Vanir</strong> (earth-fertility, taught seidr to the Aesir): <em>Freya</em> the lady of seidr, <em>Freyr</em> the sacred king who gave away his sword for love. <strong>Helheim</strong>: <em>Hel</em>, daughter of Loki, queen of the ordinary dead — the figure most distorted by Christianization. Each page: Eddic source (Poetic Edda, Snorri 1220, Saxo 1200, Adam of Bremen 1075, Tacitus 98), iconography, invocation, in love + in work, the gift, the shadow (folkish/SS appropriation, Marvel-flattening, Christianization — named honestly per god), paired rune + sabbat.</p>
+        <a class="cta outline" href="/gab44/norse-gods">Meet the 10 Norse gods →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌒 Wheel of the Year — 8 Wiccan sabbats</h2>
+        <p>The seasonal-pagan year as a complete cycle. <strong>4 cross-quarter fire festivals (Gaelic origin, ember amber):</strong> <em>Samhain</em> (Oct 31, the thin veil, Celtic new year), <em>Imbolc</em> (Feb 1, Brigid's flame, first stirrings), <em>Beltane</em> (May 1, the May fires, peak fertility), <em>Lughnasadh</em> (Aug 1, first grain harvest, Lugh's assembly). <strong>4 solar gates (astronomical, sky gold):</strong> <em>Yule</em> (winter solstice, the sun reborn), <em>Ostara</em> (spring equinox, light equals dark), <em>Litha</em> (summer solstice, the longest day), <em>Mabon</em> (autumn equinox, second balance). Each page has the date (northern + southern), the lineage from the Tochmarc Emire / Bede / Gerald Gardner, what to actually do (the bonfire, the bread, the herbs, the ancestor altar), in love, in work, the gift, the shadow. The pagan calendar made readable.</p>
+        <a class="cta outline" href="/gab44/sabbats">Turn the wheel →</a>
+      </div>
+
+      <div class="card featured">
+        <h2>✉️ Personal life-path reading — $9</h2>
+        <p>For you, your partner, your kid, your parent. A real reading written for one human, not a template. Delivered by email within 48 hours.</p>
+        <a class="cta" href="/gab44/reading">Request your reading →</a>
+        <div class="agent-row">
+          <span class="pill pill-a"><span class="d"></span>1-2 page reading</span>
+          <span class="pill pill-b"><span class="d"></span>delivered in 48h</span>
+          <span class="pill pill-c"><span class="d"></span>kept private</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🛠️ Tools we actually use</h2>
+        <p>Honest picks — these are what we run our own work on.</p>
+        <div class="row">
+          <a class="cta outline" href="https://try.elevenlabs.io/6ieh81n1v8o6" target="_blank" rel="noopener">🎙️ ElevenLabs</a>
+          <a class="cta outline" href="https://www.iherb.com" target="_blank" rel="noopener">🌿 iHerb</a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="manifesto">
-    <div class="manifesto-wrap">
-      <h2>What this is</h2>
-      <p>
-        gab44 is a warm, modern astrology reference. No daily AI-generated
-        noise. No horoscope-by-the-numbers. Every page is hand-written,
-        and the voice is the friend who actually knows the sky — not the
-        booth at the back of the bookstore.
-      </p>
-      <p>
-        Read like a reference, not a feed. Look up the sign of the
-        person you're trying to understand. Look up the card you just
-        pulled. Look up the transit your friend keeps mentioning. The
-        pages link to each other — once you start one, you'll find your
-        way to the next.
-      </p>
-      <p>
-        <a href="/about" class="manifesto-link">More about gab44 →</a>
-      </p>
-    </div>
-  </section>
+    
+  
+</div>
 </BaseLayout>
 
 <style>
-  .hero {
-    background: linear-gradient(180deg, var(--t3-hero-bg) 0%, var(--t2-bg-page) 100%);
-    padding: 80px 22px 64px;
-  }
-  .hero-wrap { max-width: 760px; margin: 0 auto; text-align: center; }
-  .brand-row {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-family: var(--t2-font-heading);
-    font-size: var(--t1-size-lg);
-    color: var(--t3-hero-accent);
-    margin-bottom: 24px;
-    padding: 6px 16px;
-    border: 1px solid var(--t2-border-soft);
-    border-radius: var(--t1-radius-pill);
-    background: var(--t2-bg-elevated);
-  }
-  .brand-mark { color: var(--t2-accent-primary); }
-  .hero h1 {
-    font-size: var(--t1-size-5xl);
-    margin: 16px 0 18px;
-    font-family: var(--t2-font-heading);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-  }
-  .hero .lede {
-    font-size: var(--t1-size-md);
-    color: var(--t3-hero-subtitle);
-    max-width: 620px; margin: 0 auto 28px;
-    line-height: 1.6;
-  }
-  .hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
-  .btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 12px 22px;
-    border-radius: var(--t1-radius-pill);
-    font-family: var(--t2-font-body);
-    font-weight: 500;
-    font-size: var(--t1-size-sm);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .btn-primary {
-    background: var(--t3-hero-cta-bg);
-    color: var(--t3-hero-cta-text);
-    box-shadow: var(--t1-shadow-md);
-  }
-  .btn-primary:hover { background: var(--t3-hero-cta-bg-hover); transform: translateY(-1px); }
-  .btn-secondary {
-    background: var(--t2-bg-elevated);
-    color: var(--t3-hero-text);
-    border: 1px solid var(--t2-border-strong);
-  }
-  .btn-secondary:hover { background: var(--t2-bg-soft); transform: translateY(-1px); }
+.home-root { /* scope OLD styles to homepage only */ }
+.home-root :where(h1,h2,p,a) { all: revert; }
 
-  .cards-section { padding: 64px 22px 32px; }
-  .cards-wrap { max-width: 1100px; margin: 0 auto; }
-  .section-heading {
-    font-size: var(--t1-size-xs);
-    font-family: var(--t2-font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--t3-post-sub-text);
-    text-align: center;
-    margin: 0 0 32px;
+  :root {
+    --bg-0:#faf9f5; --bg-1:#fff; --bg-2:#f1ede4; --bg-3:#e6e0d2;
+    --line:rgba(34,24,12,0.10); --line-strong:rgba(34,24,12,0.18);
+    --fg:#1a1815; --fg-dim:#5a564e; --fg-muted:#8b8779; --fg-on-accent:#fffaf2;
+    --accent:#c96442; --accent-2:#b85432; --accent-soft:#fdebe2;
+    --cyan:#0ca8c9; --violet:#6943e0; --magenta:#c4308a;
+    --green:#2e9e6a; --amber:#d59315; --red:#d63d4d;
+    --shadow-1: 0 1px 2px rgba(20,14,4,0.04), 0 4px 14px rgba(20,14,4,0.06);
+    --shadow-2: 0 8px 28px rgba(20,14,4,0.10);
   }
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background:
+      radial-gradient(1100px 600px at -10% -10%, #fdf5e9 0%, transparent 50%),
+      radial-gradient(900px 500px at 110% 110%, #f5e8df 0%, transparent 60%),
+      var(--bg-0);
+    color: var(--fg); line-height: 1.55; min-height: 100vh;
   }
+  .home-wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+  .nav { font-size: 13px; margin-bottom: 32px; display: flex; gap: 18px; flex-wrap: wrap; }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .nav a:hover { text-decoration: underline; }
+  .brand-mark {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 700; margin-bottom: 14px;
+  }
+  .brand-mark .dot { width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  h1 {
+    font-size: 60px; line-height: 1.02; margin: 8px 0 14px;
+    letter-spacing: -0.02em; font-weight: 800; color: var(--fg);
+  }
+  h1 .accent { color: var(--accent); }
+  .sub { font-size: 19px; color: var(--fg-dim); max-width: 560px; margin: 0 0 36px; }
+  .grid { display: grid; gap: 14px; }
   .card {
-    display: block;
-    text-decoration: none; color: inherit;
-    padding: 22px 20px;
-    background: var(--t3-card-bg);
-    border: 1px solid var(--t3-card-border);
-    border-radius: var(--t3-card-radius);
-    box-shadow: var(--t3-card-shadow);
-    transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+    background: var(--bg-1); border: 1px solid var(--line);
+    padding: 22px 24px 22px; border-radius: 16px;
+    box-shadow: var(--shadow-1);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.05s;
   }
-  .card:hover {
-    box-shadow: var(--t3-card-shadow-hover);
-    border-color: var(--t3-card-accent);
-    transform: translateY(-2px);
-    text-decoration: none;
+  .card:hover { border-color: var(--line-strong); box-shadow: var(--shadow-2); }
+  .card h2 { margin: 0 0 6px; font-size: 21px; font-weight: 700; color: var(--fg); }
+  .card p { margin: 0 0 16px; color: var(--fg-dim); }
+  .card.featured { border-color: var(--accent); }
+  .card.featured h2 { color: var(--accent-2); }
+  .cta {
+    display: inline-block; background: var(--accent); color: var(--fg-on-accent);
+    font-weight: 600; padding: 11px 22px; border-radius: 999px;
+    text-decoration: none; font-size: 14px; transition: background 0.15s, transform 0.05s;
   }
-  .card-symbol { font-size: var(--t1-size-3xl); line-height: 1; margin-bottom: 8px; }
-  .card-label {
-    font-family: var(--t2-font-heading);
-    font-size: var(--t1-size-lg);
-    font-weight: 600;
-    color: var(--t3-card-text);
-    margin-bottom: 6px;
+  .cta:hover { background: var(--accent-2); }
+  .cta:active { transform: translateY(1px); }
+  .cta.outline {
+    background: transparent; color: var(--fg); border: 1px solid var(--line-strong);
   }
-  .card-text {
-    color: var(--t3-post-sub-text);
-    font-size: var(--t1-size-sm);
-    line-height: 1.55;
-    margin: 0 0 12px;
+  .cta.outline:hover { background: var(--bg-2); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .stars { font-size: 22px; letter-spacing: 6px; color: var(--accent); opacity: 0.7; }
+  .agent-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--fg-muted); }
+  .agent-row .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 10px; border-radius: 999px; background: var(--bg-2);
   }
-  .card-cta {
-    font-family: var(--t2-font-mono);
-    font-size: var(--t1-size-xs);
-    color: var(--t3-card-accent);
-    letter-spacing: 0.04em;
+  .agent-row .pill .d { width: 7px; height: 7px; border-radius: 50%; }
+  .pill.pill-a   .d { background: var(--violet); }
+  .pill.pill-b .d { background: var(--green); }
+  .pill.pill-c .d { background: var(--cyan); }
+  footer {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
+    color: var(--fg-muted); font-size: 13px;
   }
+  footer a { color: var(--fg-dim); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  @media (max-width: 520px) { h1 { font-size: 42px; } .sub { font-size: 17px; } }
 
-  .manifesto { padding: 56px 22px 80px; }
-  .manifesto-wrap {
-    max-width: 720px; margin: 0 auto;
-    background: var(--t2-bg-elevated);
-    padding: 40px;
-    border-radius: var(--t1-radius-lg);
-    border: 1px solid var(--t2-border-soft);
-    text-align: left;
-  }
-  .manifesto h2 {
-    font-size: var(--t1-size-2xl);
-    margin: 0 0 16px;
-    color: var(--t3-post-h-text);
-  }
-  .manifesto p { font-size: var(--t1-size-md); color: var(--t3-post-body-text); line-height: 1.65; }
-  .manifesto-link { color: var(--t3-post-link); font-weight: 500; }
-
-  @media (max-width: 640px) {
-    .hero { padding: 56px 18px 40px; }
-    .hero h1 { font-size: var(--t1-size-3xl); }
-    .hero .lede { font-size: var(--t1-size-base); }
-    .cards-section { padding: 40px 16px; }
-    .manifesto-wrap { padding: 28px 20px; }
-  }
 </style>
