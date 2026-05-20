@@ -1,0 +1,76 @@
+---
+import { FOOTER_NAV } from '@/lib/nav'
+import { SITE_NAME, SITE_TAGLINE } from '@/lib/identity'
+const year = new Date().getFullYear()
+---
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <div class="footer-mark">✺</div>
+      <div class="footer-name">{SITE_NAME}</div>
+      <div class="footer-tagline">{SITE_TAGLINE}</div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      {FOOTER_NAV.map(item => (
+        <a href={item.href} class="footer-link">{item.label}</a>
+      ))}
+    </nav>
+    <div class="footer-legal">
+      <span>© {year} {SITE_NAME}</span>
+      <span class="dot">·</span>
+      <span>written warm, written human</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--t3-footer-bg);
+    color: var(--t3-footer-text);
+    border-top: 1px solid var(--t3-footer-border);
+    margin-top: 80px;
+  }
+  .footer-wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 56px 22px 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 6px; }
+  .footer-mark { font-size: 28px; color: var(--t2-accent-primary); }
+  .footer-name {
+    font-family: var(--t2-font-heading);
+    font-size: var(--t1-size-2xl); letter-spacing: 0.5px;
+  }
+  .footer-tagline {
+    font-family: var(--t2-font-body); color: var(--t3-footer-text-muted);
+    font-size: var(--t1-size-sm);
+  }
+  .footer-nav {
+    display: flex; flex-wrap: wrap; gap: 18px 28px;
+    align-self: end;
+  }
+  .footer-link {
+    color: var(--t3-footer-text); text-decoration: none;
+    font-family: var(--t2-font-body); font-weight: 500;
+    font-size: var(--t1-size-sm); letter-spacing: 0.02em;
+    transition: color 0.15s ease;
+  }
+  .footer-link:hover { color: var(--t3-footer-link-hover); }
+  .footer-legal {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--t3-footer-border);
+    padding-top: 24px;
+    color: var(--t3-footer-text-muted);
+    font-family: var(--t2-font-mono);
+    font-size: var(--t1-size-xs);
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  }
+  .footer-legal .dot { opacity: 0.6; }
+  @media (max-width: 640px) {
+    .footer-wrap { grid-template-columns: 1fr; gap: 24px; }
+    .footer-nav { gap: 12px 20px; align-self: start; }
+  }
+</style>

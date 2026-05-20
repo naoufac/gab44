@@ -1,0 +1,67 @@
+---
+import { TOP_NAV } from '@/lib/nav'
+// Header is intentionally page-state-free so its HTML is byte-identical across every page.
+// Active-state highlighting is handled by a small inline script in BaseLayout that reads
+// the current path at runtime.
+---
+<header class="site-header">
+  <div class="header-wrap">
+    <a href="/" class="brand" aria-label="gab44 — home">
+      <span class="brand-mark">✺</span>
+      <span class="brand-name">gab44</span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      {TOP_NAV.map(item => (
+        <a href={item.href} class="nav-item" data-nav-href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--t3-nav-bg);
+    border-bottom: 1px solid var(--t3-nav-border);
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .header-wrap {
+    max-width: 1100px; margin: 0 auto;
+    height: var(--t3-nav-height);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 22px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--t3-nav-text);
+    font-family: var(--t2-font-heading);
+    font-weight: 600; font-size: 22px; letter-spacing: 0.5px;
+  }
+  .brand-mark {
+    color: var(--t2-accent-primary);
+    font-size: 22px;
+  }
+  .brand-name { letter-spacing: 0.5px; }
+  .top-nav { display: flex; align-items: center; gap: 18px; }
+  .nav-item {
+    color: var(--t3-nav-text); text-decoration: none;
+    font-family: var(--t2-font-body); font-weight: 500;
+    font-size: var(--t1-size-sm); letter-spacing: 0.02em;
+    padding: 6px 4px; border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-item:hover {
+    color: var(--t3-nav-text-hover);
+    border-bottom-color: var(--t3-nav-text-hover);
+  }
+  .nav-item.is-current {
+    color: var(--t3-nav-text-hover);
+    border-bottom-color: var(--t3-nav-text-hover);
+  }
+  @media (max-width: 640px) {
+    .top-nav { gap: 12px; }
+    .nav-item { font-size: 12px; }
+    .brand { font-size: 18px; }
+  }
+</style>

@@ -1,0 +1,222 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { SITE_DESCRIPTION } from '@/lib/identity'
+
+const sections = [
+  { label: 'The 12 signs', href: '/horoscopes', text: 'Deep profiles for every zodiac sign — gifts, shadows, love, career, the lesson the chart is teaching you.', symbol: '♈' },
+  { label: 'The 78 tarot cards', href: '/tarot', text: '22 Major Arcana, 16 court cards, 40 minors, and a library of spreads. The whole deck, written warm.', symbol: '🃏' },
+  { label: 'Rising signs', href: '/rising/aries', text: 'The face you wear into the world. Twelve ascendant pages: first impression, body style, social mask, life chapters.', symbol: '🌅' },
+  { label: 'Moon signs', href: '/moon/cancer', text: 'The inner weather. Twelve moon-sign pages: emotional core, attachment, what soothes, what stresses.', symbol: '🌙' },
+  { label: 'Runes', href: '/runes', text: '24 elder futhark runes. Upright, reversed, in love, in work — the Norse oracle.', symbol: 'ᚠ' },
+  { label: 'I Ching', href: '/iching', text: '64 hexagrams. The Chinese book of changes — when pulled, changing lines, in love, in work.', symbol: '䷀' },
+  { label: 'Chakras', href: '/chakras/root-chakra', text: 'Seven chakras — what each governs, when open, when blocked, how to balance.', symbol: '🪷' },
+  { label: 'Compatibility', href: '/compatibility/aries-libra', text: '78 sign-pair pages. How any two zodiac signs meet — in love, in work, in the long arc.', symbol: '💞' },
+  { label: 'Decans', href: '/decans', text: 'Each sign breaks into three 10° decans. Finer-grained reading — 36 sub-types of you.', symbol: '🜂' },
+  { label: 'Lunar phases', href: '/lunar-phases', text: 'New moon, full moon, every phase in between — what to do, what to release, the ritual.', symbol: '🌒' },
+  { label: 'Asteroids', href: '/chiron/aries', text: 'Chiron, Lilith, Vesta, Juno, Pallas, Ceres and the centaur family — what the daily column forgets.', symbol: '⚹' },
+  { label: 'Wisdom traditions', href: '/wisdom', text: 'Mantras, solfeggio frequencies, sacred geometry, angel numbers, dream symbols, manifestation methods.', symbol: '✺' },
+]
+---
+<BaseLayout
+  title="gab44 — astrology, warmly written"
+  description={SITE_DESCRIPTION}
+  canonical="/"
+  ogType="website"
+  navCurrent="/"
+  pageClass="page-home"
+>
+  <section class="hero">
+    <div class="hero-wrap">
+      <div class="brand-row">
+        <span class="brand-mark">✺</span>
+        <span class="brand-name">gab44</span>
+      </div>
+      <h1>Astrology, warmly written.</h1>
+      <p class="lede">
+        A reference library, not a feed. The 12 signs. The 78 tarot cards.
+        The 24 runes. The 64 hexagrams. The chakras, the moon phases, the
+        decans, the asteroids the daily horoscope columns forget.
+        Hand-written, end to end. Over a thousand evergreen pages on the
+        language of the sky.
+      </p>
+      <div class="hero-cta">
+        <a href="/horoscopes" class="btn-primary">Read the 12 signs</a>
+        <a href="/tarot" class="btn-secondary">Browse the tarot</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-section">
+    <div class="cards-wrap">
+      <h2 class="section-heading">Doorways</h2>
+      <div class="cards-grid">
+        {sections.map(s => (
+          <a class="card" href={s.href}>
+            <div class="card-symbol">{s.symbol}</div>
+            <div class="card-label">{s.label}</div>
+            <p class="card-text">{s.text}</p>
+            <span class="card-cta">Read →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="manifesto-wrap">
+      <h2>What this is</h2>
+      <p>
+        gab44 is a warm, modern astrology reference. No daily AI-generated
+        noise. No horoscope-by-the-numbers. Every page is hand-written,
+        and the voice is the friend who actually knows the sky — not the
+        booth at the back of the bookstore.
+      </p>
+      <p>
+        Read like a reference, not a feed. Look up the sign of the
+        person you're trying to understand. Look up the card you just
+        pulled. Look up the transit your friend keeps mentioning. The
+        pages link to each other — once you start one, you'll find your
+        way to the next.
+      </p>
+      <p>
+        <a href="/about" class="manifesto-link">More about gab44 →</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(180deg, var(--t3-hero-bg) 0%, var(--t2-bg-page) 100%);
+    padding: 80px 22px 64px;
+  }
+  .hero-wrap { max-width: 760px; margin: 0 auto; text-align: center; }
+  .brand-row {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--t2-font-heading);
+    font-size: var(--t1-size-lg);
+    color: var(--t3-hero-accent);
+    margin-bottom: 24px;
+    padding: 6px 16px;
+    border: 1px solid var(--t2-border-soft);
+    border-radius: var(--t1-radius-pill);
+    background: var(--t2-bg-elevated);
+  }
+  .brand-mark { color: var(--t2-accent-primary); }
+  .hero h1 {
+    font-size: var(--t1-size-5xl);
+    margin: 16px 0 18px;
+    font-family: var(--t2-font-heading);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .hero .lede {
+    font-size: var(--t1-size-md);
+    color: var(--t3-hero-subtitle);
+    max-width: 620px; margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+  .hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+  .btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: var(--t1-radius-pill);
+    font-family: var(--t2-font-body);
+    font-weight: 500;
+    font-size: var(--t1-size-sm);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--t3-hero-cta-bg);
+    color: var(--t3-hero-cta-text);
+    box-shadow: var(--t1-shadow-md);
+  }
+  .btn-primary:hover { background: var(--t3-hero-cta-bg-hover); transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--t2-bg-elevated);
+    color: var(--t3-hero-text);
+    border: 1px solid var(--t2-border-strong);
+  }
+  .btn-secondary:hover { background: var(--t2-bg-soft); transform: translateY(-1px); }
+
+  .cards-section { padding: 64px 22px 32px; }
+  .cards-wrap { max-width: 1100px; margin: 0 auto; }
+  .section-heading {
+    font-size: var(--t1-size-xs);
+    font-family: var(--t2-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--t3-post-sub-text);
+    text-align: center;
+    margin: 0 0 32px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    display: block;
+    text-decoration: none; color: inherit;
+    padding: 22px 20px;
+    background: var(--t3-card-bg);
+    border: 1px solid var(--t3-card-border);
+    border-radius: var(--t3-card-radius);
+    box-shadow: var(--t3-card-shadow);
+    transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+  }
+  .card:hover {
+    box-shadow: var(--t3-card-shadow-hover);
+    border-color: var(--t3-card-accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .card-symbol { font-size: var(--t1-size-3xl); line-height: 1; margin-bottom: 8px; }
+  .card-label {
+    font-family: var(--t2-font-heading);
+    font-size: var(--t1-size-lg);
+    font-weight: 600;
+    color: var(--t3-card-text);
+    margin-bottom: 6px;
+  }
+  .card-text {
+    color: var(--t3-post-sub-text);
+    font-size: var(--t1-size-sm);
+    line-height: 1.55;
+    margin: 0 0 12px;
+  }
+  .card-cta {
+    font-family: var(--t2-font-mono);
+    font-size: var(--t1-size-xs);
+    color: var(--t3-card-accent);
+    letter-spacing: 0.04em;
+  }
+
+  .manifesto { padding: 56px 22px 80px; }
+  .manifesto-wrap {
+    max-width: 720px; margin: 0 auto;
+    background: var(--t2-bg-elevated);
+    padding: 40px;
+    border-radius: var(--t1-radius-lg);
+    border: 1px solid var(--t2-border-soft);
+    text-align: left;
+  }
+  .manifesto h2 {
+    font-size: var(--t1-size-2xl);
+    margin: 0 0 16px;
+    color: var(--t3-post-h-text);
+  }
+  .manifesto p { font-size: var(--t1-size-md); color: var(--t3-post-body-text); line-height: 1.65; }
+  .manifesto-link { color: var(--t3-post-link); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 56px 18px 40px; }
+    .hero h1 { font-size: var(--t1-size-3xl); }
+    .hero .lede { font-size: var(--t1-size-base); }
+    .cards-section { padding: 40px 16px; }
+    .manifesto-wrap { padding: 28px 20px; }
+  }
+</style>

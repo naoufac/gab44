@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ArticleRenderer from '@/components/ArticleRenderer.astro'
+import { getAllPages } from '@/lib/registry'
+import { CATEGORY } from '@/lib/nav'
+
+export async function getStaticPaths() {
+  const pages = getAllPages()
+  return pages.map(p => ({
+    params: { slug: p.route },
+    props: { page: p },
+  }))
+}
+
+const { page } = Astro.props as { page: import('@/lib/types').Page }
+const cat = CATEGORY[page.category]
+const navCurrent = cat?.parentHref ?? '/'
+const ogImage = `/og/${page.route.replace(/\//g, '__')}.svg`
+---
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical={`/${page.route}`}
+  ogImage={ogImage}
+  ogType="article"
+  navCurrent={navCurrent}
+  pageClass="page-article"
+>
+  <ArticleRenderer page={page} />
+</BaseLayout>

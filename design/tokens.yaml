@@ -1,0 +1,187 @@
+# gab44 design tokens — SINGLE SOURCE OF DESIGN TRUTH
+# Edit here, run `npm run tokens`, all surfaces update:
+#   - src/styles/tokens.css       (CSS custom properties for the website)
+#   - src/lib/email-tokens.ts     (inline-style helper for email templates)
+#   - src/lib/og-tokens.ts        (OG card token values for SVG generator)
+#
+# Three tiers (Naoufal's spec, 2026-05-20):
+#   T1 BRAND      — primitives. Editing T1 cascades to website + emails + OG + future media.
+#   T2 SEMANTIC   — derived. Names roles, not pixels.
+#   T3 SURFACE    — scoped. Edit card-*, only cards move. Edit hero-*, only hero moves.
+
+# ============================================================
+# TIER 1 — BRAND PRIMITIVES
+# ============================================================
+tier1:
+  color:
+    cream:        '#FAF5EE'
+    cream_soft:   '#F4ECE0'
+    ink:          '#1E1B16'
+    ink_soft:     '#3A332A'
+    coral:        '#D97757'
+    coral_deep:   '#B85C3E'
+    sage:         '#7A8A6B'
+    sand:         '#C9B79A'
+    rose:         '#E8B8A5'
+    star:         '#7C6FA3'
+    white:        '#FFFFFF'
+    line:         '#E5DDD0'
+    line_strong:  '#C9BFAE'
+
+  font:
+    serif:        '"EB Garamond", Georgia, "Times New Roman", serif'
+    sans:         '"Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif'
+    mono:         '"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace'
+
+  size:
+    xs:     '0.75rem'    # 12
+    sm:     '0.875rem'   # 14
+    base:   '1rem'       # 16
+    md:     '1.125rem'   # 18
+    lg:     '1.25rem'    # 20
+    xl:     '1.5rem'     # 24
+    '2xl':  '1.875rem'   # 30
+    '3xl':  '2.25rem'    # 36
+    '4xl':  '3rem'       # 48
+    '5xl':  '3.75rem'    # 60
+
+  space:
+    '0':    '0'
+    '1':    '0.25rem'
+    '2':    '0.5rem'
+    '3':    '0.75rem'
+    '4':    '1rem'
+    '5':    '1.25rem'
+    '6':    '1.5rem'
+    '8':    '2rem'
+    '10':   '2.5rem'
+    '12':   '3rem'
+    '16':   '4rem'
+    '20':   '5rem'
+    '24':   '6rem'
+
+  radius:
+    sm:     '6px'
+    md:     '10px'
+    lg:     '14px'
+    xl:     '20px'
+    pill:   '999px'
+
+  shadow:
+    sm:     '0 1px 2px rgba(30,27,22,0.06)'
+    md:     '0 4px 12px rgba(30,27,22,0.08)'
+    lg:     '0 12px 28px rgba(30,27,22,0.10)'
+
+  brand:
+    name:        'gab44'
+    tagline:     'astrology, warmly written.'
+    site_url:    'https://gab44.com'
+    og_image:    'https://gab44.com/og/default.svg'
+
+# ============================================================
+# TIER 2 — SEMANTIC (derived; refs into tier1)
+# ============================================================
+tier2:
+  bg:
+    page:         tier1.color.cream
+    elevated:     tier1.color.white
+    soft:         tier1.color.cream_soft
+    inverse:      tier1.color.ink
+
+  text:
+    primary:      tier1.color.ink
+    secondary:    tier1.color.ink_soft
+    on_inverse:   tier1.color.cream
+    accent:       tier1.color.coral_deep
+    muted:        tier1.color.sand
+
+  border:
+    soft:         tier1.color.line
+    strong:       tier1.color.line_strong
+
+  accent:
+    primary:      tier1.color.coral
+    primary_hover: tier1.color.coral_deep
+    secondary:    tier1.color.sage
+    rose:         tier1.color.rose
+    star:         tier1.color.star
+
+  font:
+    heading:      tier1.font.serif
+    body:         tier1.font.sans
+    mono:         tier1.font.mono
+
+# ============================================================
+# TIER 3 — SURFACE (scoped; edit a key here = edit ONLY that surface)
+# ============================================================
+tier3:
+  # Navigation
+  nav:
+    bg:           tier2.bg.page
+    bg_scrolled:  'rgba(250,245,238,0.92)'
+    text:         tier2.text.primary
+    text_hover:   tier2.accent.primary_hover
+    border:       tier2.border.soft
+    height:       '64px'
+
+  # Footer
+  footer:
+    bg:           tier2.bg.inverse
+    text:         tier2.text.on_inverse
+    text_muted:   '#9C8F7A'
+    border:       '#3A332A'
+    link_hover:   tier1.color.rose
+
+  # Hero (homepage + landing)
+  hero:
+    bg:           tier2.bg.soft
+    text:         tier2.text.primary
+    subtitle:     tier2.text.secondary
+    accent:       tier2.accent.primary
+    cta_bg:       tier2.accent.primary
+    cta_text:     tier1.color.white
+    cta_bg_hover: tier2.accent.primary_hover
+
+  # Card (used by horoscopes, tarot, decans index tiles etc.)
+  card:
+    bg:           tier2.bg.elevated
+    text:         tier2.text.primary
+    border:       tier2.border.soft
+    radius:       tier1.radius.lg
+    shadow:       tier1.shadow.sm
+    shadow_hover: tier1.shadow.md
+    accent:       tier2.accent.primary
+
+  # Post / content article (the 1100 evergreen pages)
+  post:
+    bg:           tier2.bg.page
+    body_text:    tier2.text.primary
+    sub_text:     tier2.text.secondary
+    h_text:       tier2.text.primary
+    accent:       tier2.accent.primary
+    quote_border: tier2.accent.primary
+    quote_bg:     tier2.bg.soft
+    link:         tier2.accent.primary_hover
+    link_hover:   tier1.color.ink
+
+  # Email template (no CSS vars — needs literal values inline)
+  email:
+    bg:           tier2.bg.page
+    container_bg: tier2.bg.elevated
+    text:         tier2.text.primary
+    sub_text:     tier2.text.secondary
+    accent:       tier2.accent.primary
+    cta_bg:       tier2.accent.primary
+    cta_text:     tier1.color.white
+    border:       tier2.border.soft
+    radius:       tier1.radius.md
+
+  # OG card (1200x630)
+  og:
+    bg:           tier2.bg.soft
+    accent:       tier2.accent.primary
+    text:         tier2.text.primary
+    sub_text:     tier2.text.secondary
+    brand:        tier2.text.accent
+    font_title:   tier2.font.heading
+    font_sub:     tier2.font.body

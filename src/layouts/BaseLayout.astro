@@ -1,0 +1,120 @@
+---
+import '@/styles/tokens.css'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import { SITE_URL, SITE_NAME } from '@/lib/identity'
+
+interface Props {
+  title: string
+  description: string
+  canonical?: string         // relative or absolute; defaults to current pathname
+  ogImage?: string           // defaults to /og/default.svg
+  ogType?: 'website' | 'article'
+  navCurrent?: string        // which top-nav item to mark current
+  pageClass?: string         // page-type class for body-specific styling
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  ogType = 'article',
+  navCurrent = '',
+  pageClass = '',
+} = Astro.props as Props
+
+const pathname = Astro.url.pathname
+const canonicalUrl = canonical
+  ? (canonical.startsWith('http') ? canonical : `${SITE_URL}${canonical}`)
+  : `${SITE_URL}${pathname === '/' ? '' : pathname.replace(/\/$/, '')}`
+const ogImgUrl = ogImage
+  ? (ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`)
+  : `${SITE_URL}/og/default.svg`
+const fullTitle = title.includes(SITE_NAME) ? title : `${title} · ${SITE_NAME}`
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImgUrl} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImgUrl} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+</head>
+<body class:list={['page', pageClass]}>
+  <Header />
+  <main class="main">
+    <slot />
+  </main>
+  <Footer />
+  <script is:inline>
+    // Mark active top-nav item at runtime so header HTML stays byte-identical at build.
+    (function () {
+      var path = location.pathname.replace(/\/$/, '') || '/'
+      var links = document.querySelectorAll('.top-nav .nav-item')
+      var bestHref = '/'
+      var bestLen = 0
+      links.forEach(function (a) {
+        var h = a.getAttribute('data-nav-href') || '/'
+        if (h === '/') return
+        if (path === h || path.indexOf(h + '/') === 0) {
+          if (h.length > bestLen) { bestHref = h; bestLen = h.length }
+        }
+      })
+      if (path === '/') bestHref = '/'
+      links.forEach(function (a) {
+        if ((a.getAttribute('data-nav-href') || '') === bestHref) {
+          a.classList.add('is-current')
+          a.setAttribute('aria-current', 'page')
+        }
+      })
+    })()
+  </script>
+</body>
+</html>
+
+<style is:global>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--t2-font-body);
+    color: var(--t2-text-primary);
+    background: var(--t2-bg-page);
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: var(--t2-accent-primary-hover); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .main { min-height: calc(100vh - var(--t3-nav-height) - 200px); }
+  h1, h2, h3, h4 {
+    font-family: var(--t2-font-heading);
+    color: var(--t2-text-primary);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  h1 { font-size: var(--t1-size-4xl); margin: 0 0 12px; }
+  h2 { font-size: var(--t1-size-2xl); margin: 32px 0 10px; }
+  h3 { font-size: var(--t1-size-xl); margin: 24px 0 8px; }
+  p { margin: 0 0 16px; }
+  ::selection { background: var(--t1-color-coral); color: white; }
+</style>

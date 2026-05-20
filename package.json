@@ -1,0 +1,18 @@
+{
+  "name": "gab44",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "tokens": "node --experimental-strip-types scripts/build-tokens.ts",
+    "build": "npm run tokens && astro build && npm run check",
+    "check": "node --experimental-strip-types scripts/check-clean.ts",
+    "dev": "npm run tokens && astro dev",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.7.0",
+    "@astrojs/sitemap": "^3.3.0",
+    "yaml": "^2.5.0"
+  }
+}
