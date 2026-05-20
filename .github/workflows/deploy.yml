@@ -1,0 +1,87 @@
+name: Build and deploy gab44.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: gab44-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build tokens
+        run: npm run tokens
+
+      - name: Astro build (runs check-clean afterwards via npm run build)
+        run: npm run build
+
+      - name: Verify dist exists and contains expected pages
+        run: |
+          set -e
+          test -f dist/index.html
+          test -f dist/sitemap-index.xml
+          test -f dist/robots.txt
+          test -f dist/tarot/the-fool/index.html
+          test -f dist/horoscopes/aries/index.html
+          echo "dist file count: $(find dist -type f | wc -l)"
+          echo "dist html count: $(find dist -name '*.html' | wc -l)"
+
+      - name: Install SSH key
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -t ed25519 ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy via rsync
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH"
+
+      - name: Smoke-test the live site
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          sleep 3
+          set -e
+          # Hit a few canonical URLs through the public domain.
+          # Should 200 and contain expected markers.
+          for url in https://gab44.com/ https://gab44.com/tarot/the-fool https://gab44.com/horoscopes/aries https://gab44.com/sitemap-index.xml https://gab44.com/robots.txt; do
+            code=$(curl -s -o /tmp/check.out -w "%{http_code}" -L "$url")
+            echo "$url → HTTP $code"
+            [ "$code" = "200" ] || { echo "FAILED: $url"; exit 1; }
+          done
+          # Forbidden patterns must not appear in served HTML
+          for url in https://gab44.com/ https://gab44.com/tarot/the-fool https://gab44.com/horoscopes/aries; do
+            hits=$(curl -s -L "$url" | grep -ciE 'nao00|workers\.dev|nao_00|nao-00|nao44|minouch|mistral|council|powered by nao' || true)
+            echo "$url forbidden-hits = $hits"
+            [ "$hits" = "0" ] || { echo "LEAK on $url"; exit 1; }
+          done
+
+      - name: Done
+        run: echo "✓ Deployed gab44.com at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
