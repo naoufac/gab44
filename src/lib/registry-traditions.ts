@@ -24,6 +24,11 @@ import { SHINTO_KAMI } from '@data/shinto_kami'
 import { NORSE_GODS } from '@data/norse_gods'
 import { SABBATS } from '@data/sabbats'
 import { ROMAN_GODS } from '@data/roman_gods'
+import { INCA_GODS } from '@data/inca_gods'
+import { PERSIAN_YAZATAS } from '@data/persian_yazatas'
+import { CHINESE_GODS } from '@data/chinese_gods'
+import { POLYNESIAN_GODS } from '@data/polynesian_gods'
+import { MAYAN_GODS } from '@data/mayan_gods'
 import { SLAVIC_GODS } from '@data/slavic_gods'
 
 function cap(s: string): string { return s ? s.charAt(0).toUpperCase() + s.slice(1) : '' }
@@ -590,6 +595,110 @@ export function allTraditionPages(): Page[] {
       { field: 'in_love', heading: 'In love' },
       { field: 'in_work', heading: 'In work' },
       { field: 'the_gift', heading: 'The gift' },
+      { field: 'the_shadow', heading: 'The shadow' },
+      { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
+    ],
+  }))
+
+  // ── Five remaining pantheons ported from worker, cycle 60 ──────────
+
+  // Inca Gods (cosmic/sky/land)
+  out.push(...catalogPages({
+    records: INCA_GODS, routeBase: 'inca-gods', category: 'inca_gods',
+    displayLabel: 'Inca Gods', titleField: 'text',
+    meta: r => [
+      { label: 'Names', value: r.names },
+      { label: 'Family', value: cap(r.family) },
+      { label: 'Epithet', value: r.epithet },
+    ],
+    fields: [
+      { field: 'meaning', heading: 'Who they are' },
+      { field: 'the_canonical_story', heading: 'The canonical story' },
+      { field: 'the_lesson', heading: 'The lesson' },
+      { field: 'in_love', heading: 'In love' },
+      { field: 'in_work', heading: 'In work' },
+      { field: 'the_shadow', heading: 'The shadow' },
+      { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
+    ],
+  }))
+
+  // Persian Yazatas (Zoroastrian — cosmic/earth/covenant)
+  out.push(...catalogPages({
+    records: PERSIAN_YAZATAS, routeBase: 'persian-yazatas', category: 'persian_yazatas',
+    displayLabel: 'Persian Yazatas', titleField: 'text',
+    meta: r => [
+      { label: 'Names', value: r.names },
+      { label: 'Family', value: cap(r.family) },
+      { label: 'Epithet', value: r.epithet },
+    ],
+    fields: [
+      { field: 'meaning', heading: 'Who they are' },
+      { field: 'the_canonical_story', heading: 'The canonical story' },
+      { field: 'the_lesson', heading: 'The lesson' },
+      { field: 'in_love', heading: 'In love' },
+      { field: 'in_work', heading: 'In work' },
+      { field: 'the_shadow', heading: 'The shadow' },
+      { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
+    ],
+  }))
+
+  // Chinese Gods (sovereign/compassion/warrior — same schema as Slavic/Norse)
+  out.push(...catalogPages({
+    records: CHINESE_GODS, routeBase: 'chinese-gods', category: 'chinese_gods',
+    displayLabel: 'Chinese Gods', titleField: 'text',
+    meta: r => [
+      { label: 'Names', value: r.names },
+      { label: 'Family', value: cap(r.family) },
+      { label: 'Epithet', value: r.epithet },
+      { label: 'Sources', value: r.source_text },
+    ],
+    fields: [
+      { field: 'meaning', heading: 'Who they are' },
+      { field: 'iconography', heading: 'Iconography' },
+      { field: 'invocation', heading: 'How to invoke' },
+      { field: 'in_love', heading: 'In love' },
+      { field: 'in_work', heading: 'In work' },
+      { field: 'the_gift', heading: 'The gift' },
+      { field: 'the_shadow', heading: 'The shadow' },
+      { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
+    ],
+  }))
+
+  // Polynesian Gods (cosmic/volcanic/hero)
+  out.push(...catalogPages({
+    records: POLYNESIAN_GODS, routeBase: 'polynesian-gods', category: 'polynesian_gods',
+    displayLabel: 'Polynesian Gods', titleField: 'text',
+    meta: r => [
+      { label: 'Names', value: r.names },
+      { label: 'Family', value: cap(r.family) },
+      { label: 'Epithet', value: r.epithet },
+    ],
+    fields: [
+      { field: 'meaning', heading: 'Who they are' },
+      { field: 'the_canonical_story', heading: 'The canonical story' },
+      { field: 'the_lesson', heading: 'The lesson' },
+      { field: 'in_love', heading: 'In love' },
+      { field: 'in_work', heading: 'In work' },
+      { field: 'the_shadow', heading: 'The shadow' },
+      { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
+    ],
+  }))
+
+  // Mayan Gods (cosmic/sustenance/twins)
+  out.push(...catalogPages({
+    records: MAYAN_GODS, routeBase: 'mayan-gods', category: 'mayan_gods',
+    displayLabel: 'Mayan Gods', titleField: 'text',
+    meta: r => [
+      { label: 'Names', value: r.names },
+      { label: 'Family', value: cap(r.family) },
+      { label: 'Epithet', value: r.epithet },
+    ],
+    fields: [
+      { field: 'meaning', heading: 'Who they are' },
+      { field: 'the_canonical_story', heading: 'The canonical story' },
+      { field: 'the_lesson', heading: 'The lesson' },
+      { field: 'in_love', heading: 'In love' },
+      { field: 'in_work', heading: 'In work' },
       { field: 'the_shadow', heading: 'The shadow' },
       { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
     ],
