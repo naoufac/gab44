@@ -111,6 +111,7 @@ export const CATEGORY: Record<string, { label: string; parent: string; parentHre
   nakshatras:         { label: 'Nakshatras (Vedic)',           parent: 'Wisdom',   parentHref: '/wisdom' },
   norse_gods:         { label: 'Norse Gods',                   parent: 'Wisdom',   parentHref: '/wisdom' },
   olympians:          { label: 'Olympian Gods',                parent: 'Wisdom',   parentHref: '/wisdom' },
+  roman_gods:         { label: 'Roman Gods',                   parent: 'Wisdom',   parentHref: '/wisdom' },
   orishas:            { label: 'Orishas',                      parent: 'Wisdom',   parentHref: '/wisdom' },
   pranayama:          { label: 'Pranayama',                    parent: 'Wisdom',   parentHref: '/wisdom' },
   sabbats:            { label: 'Wheel of the Year (Sabbats)',  parent: 'Wisdom',   parentHref: '/wisdom' },

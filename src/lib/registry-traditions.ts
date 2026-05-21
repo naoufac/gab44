@@ -23,6 +23,7 @@ import { AZTEC_GODS } from '@data/aztec_gods'
 import { SHINTO_KAMI } from '@data/shinto_kami'
 import { NORSE_GODS } from '@data/norse_gods'
 import { SABBATS } from '@data/sabbats'
+import { ROMAN_GODS } from '@data/roman_gods'
 
 function cap(s: string): string { return s ? s.charAt(0).toUpperCase() + s.slice(1) : '' }
 
@@ -542,6 +543,28 @@ export function allTraditionPages(): Page[] {
       { field: 'in_love', heading: 'In love' },
       { field: 'in_work', heading: 'In work' },
       { field: 'the_gift', heading: 'The gift' },
+      { field: 'the_shadow', heading: 'The shadow' },
+      { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
+    ],
+  }))
+
+  // Roman Gods — Dii Consentes (12), companion to Olympians per the
+  // interpretatio graeca but structurally distinct (jurisdiction-and-formula,
+  // not personality-and-myth). Ported from worker 2026-05-21.
+  out.push(...catalogPages({
+    records: ROMAN_GODS, routeBase: 'roman-gods', category: 'roman_gods',
+    displayLabel: 'Roman Gods', titleField: 'text',
+    meta: r => [
+      { label: 'Names', value: r.names },
+      { label: 'Family', value: cap(r.family) },
+      { label: 'Epithet', value: r.epithet },
+    ],
+    fields: [
+      { field: 'meaning', heading: 'Who they are' },
+      { field: 'the_canonical_story', heading: 'The canonical story' },
+      { field: 'the_lesson', heading: 'The lesson' },
+      { field: 'in_love', heading: 'In love' },
+      { field: 'in_work', heading: 'In work' },
       { field: 'the_shadow', heading: 'The shadow' },
       { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
     ],
