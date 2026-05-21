@@ -24,6 +24,7 @@ import { SHINTO_KAMI } from '@data/shinto_kami'
 import { NORSE_GODS } from '@data/norse_gods'
 import { SABBATS } from '@data/sabbats'
 import { ROMAN_GODS } from '@data/roman_gods'
+import { SLAVIC_GODS } from '@data/slavic_gods'
 
 function cap(s: string): string { return s ? s.charAt(0).toUpperCase() + s.slice(1) : '' }
 
@@ -565,6 +566,30 @@ export function allTraditionPages(): Page[] {
       { field: 'the_lesson', heading: 'The lesson' },
       { field: 'in_love', heading: 'In love' },
       { field: 'in_work', heading: 'In work' },
+      { field: 'the_shadow', heading: 'The shadow' },
+      { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
+    ],
+  }))
+
+  // Slavic Gods — three families: sovereign, life, shadow. Completes the
+  // European pantheons set (Greek olympians, Roman gods, Celtic, Norse).
+  // Source: Chronicle of Nestor, Helmold of Bosau, Slavic Primary Chronicle.
+  out.push(...catalogPages({
+    records: SLAVIC_GODS, routeBase: 'slavic-gods', category: 'slavic_gods',
+    displayLabel: 'Slavic Gods', titleField: 'text',
+    meta: r => [
+      { label: 'Names', value: r.names },
+      { label: 'Family', value: cap(r.family) },
+      { label: 'Epithet', value: r.epithet },
+      { label: 'Sources', value: r.source_text },
+    ],
+    fields: [
+      { field: 'meaning', heading: 'Who they are' },
+      { field: 'iconography', heading: 'Iconography' },
+      { field: 'invocation', heading: 'How to invoke' },
+      { field: 'in_love', heading: 'In love' },
+      { field: 'in_work', heading: 'In work' },
+      { field: 'the_gift', heading: 'The gift' },
       { field: 'the_shadow', heading: 'The shadow' },
       { field: 'key_questions', heading: 'Three questions to sit with', asList: true },
     ],
